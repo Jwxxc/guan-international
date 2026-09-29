@@ -26,4 +26,3 @@
 .decision-hand-tools .hand-layout-vertical { transform:rotate(90deg); }
 .decision-hand-tools .vertical-hand-notice { position:absolute;top:1px;left:135px;right:0;margin:0;font-size:9px;line-height:16px;color:#b1bda8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;animation:vertical-notice 3.2s both; }
 @media(max-width:1100px) { .table-screen .play-area .decision-zone { column-gap:10px;grid-template-columns:minmax(0,1fr) 224px auto; } .decision-hand-tools .hand-tools button,.decision-hand-tools .hand-layout-trigger { padding-inline:7px; } .table-screen .play-area .decision-replay { grid-template-columns:minmax(0,1fr) auto; } }
-

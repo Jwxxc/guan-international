@@ -22,8 +22,8 @@ function exportHistory(entries: StatisticsEntry[]) {
     dateLabel(entry), MODE_LABELS[entry.mode], DIFFICULTY_LABELS[entryDifficulty(entry)], entry.kind === 'hand' ? '单副' : '整场', isWin(entry) ? '胜' : '负',
     entry.kind === 'hand' ? placeLabel(entry) : '', entry.kind === 'hand' ? rankName(entry.levelRank) : '', entry.kind === 'hand' ? entry.handNumber : entry.handCount,
   ])];
-  const csv = '\uFEFF' + rows.map(row => row.map(cell => `"${String(cell).replaceAll('"', '""')}"`).join(',')).join('\r\n');
-  downloadTextFile(`GUAN-个人战绩-${new Date().toISOString().slice(0, 10)}.csv`, csv, 'text/csv;charset=utf-8');
+  const csv = '\uFEFF' + rows.map(row => row.map(cell => `"${String(tx(cell)).replaceAll('"', '""')}"`).join(',')).join('\r\n');
+  downloadTextFile(tx(`GUAN-个人战绩-${new Date().toISOString().slice(0, 10)}.csv`), csv, 'text/csv;charset=utf-8');
 }
 export function StatisticsDialog({ onClose, online = false, onReplay }: { onClose: () => void; online?: boolean; onReplay?: (source: ReplaySource, handId?: string) => void }) {
   const [stored, setStored] = useState(loadStatistics);
