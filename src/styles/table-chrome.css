@@ -1,0 +1,34 @@
+/* Table tools share the arena corners; no separate header row or side columns. */
+.table-arena .table-chrome-brand,
+.table-arena .table-chrome-controls {
+  position: absolute;
+  top: 6px;
+  z-index: 6;
+  max-width: calc(50% - 125px);
+}
+.table-arena .table-chrome-brand { left: 4px; }
+.table-arena .table-chrome-controls { right: 4px; display: grid; justify-items: end; gap: 5px; }
+.table-arena .table-brand { gap: 12px; min-height: 50px; }
+.table-arena .table-brand .brand-compact,
+.table-arena .table-brand .brand-compact .brand-image { width: 150px !important; height: 50px !important; }
+.table-arena .practice-label { font-size: 10px; color: #b9a686; letter-spacing: 1px; }
+.table-arena .practice-label.brand-motto { flex:none;padding-left:16px;border-left:1px solid #c9aa6c42;font:400 12px/1.5 var(--serif);letter-spacing:2.6px;white-space:nowrap;color:#d5c3a0; }
+.table-arena .header-actions { gap: 18px; font-size: 11px; min-height: 32px; }
+.table-arena .header-actions .quiet-button { gap: 6px; padding: 4px 0; min-height: 30px; }
+.table-arena .table-level { gap: 7px; font-size: 10px; }
+.table-arena .table-level strong { width: 24px; height: 27px; font-size: 19px; }
+.table-arena .table-level > span:last-child { margin-left: 2px; }
+.table-match-status { margin-top: 3px; font-size: 11px; line-height: 1.5; color: #d5c39e; }
+
+@media (max-width: 1100px) {
+  .table-arena .table-chrome-brand,
+  .table-arena .table-chrome-controls { top: 4px; max-width: calc(50% - 111px); }
+  .table-arena .table-brand { gap: 9px; min-height:44px; }
+  .table-arena .table-brand .brand-compact,
+  .table-arena .table-brand .brand-compact .brand-image { width: 130px !important; height: 44px !important; }
+  .table-arena .practice-label.brand-motto { padding-left:12px;font-size:11px;letter-spacing:1.8px; }
+  .table-arena .header-actions { min-height: 30px; gap: 13px; }
+  .table-arena .table-level { gap: 5px; }
+  .table-arena .table-level strong { width: 22px; height: 25px; font-size: 18px; }
+  .table-match-status { font-size: 10px; }
+}

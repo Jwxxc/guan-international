@@ -1,0 +1,46 @@
+/* A fixed set of everyday controls; less frequent operations remain two clicks away. */
+.play-area .hand-workspace .hand-toolbar.hand-toolbar-compact {
+  display:flex; align-items:center; gap:12px; min-height:44px; height:auto; padding:4px;
+}
+.hand-workspace .hand-toolbar-compact .hand-owner { flex:0 0 auto; gap:7px; }
+.hand-workspace .hand-toolbar-compact .hand-owner b { font-variant-numeric:tabular-nums; }
+.hand-workspace .hand-toolbar-compact .hand-tools { display:flex; flex-wrap:nowrap; align-items:center; gap:6px; min-height:0; height:auto; padding:0; }
+.hand-workspace .hand-toolbar-compact .hand-tools button { min-height:32px; padding:5px 11px; font-size:11px; color:#d2d8c9; }
+.hand-workspace .hand-toolbar-compact .hand-tools .hand-smart-button { color:#edd29b; }
+.hand-workspace .hand-toolbar-compact .hand-tools button:nth-child(2) { min-width:50px; }
+.hand-workspace .hand-toolbar-compact .hand-view-controls { display:flex; margin-left:auto; }
+.hand-workspace .hand-layout-trigger { display:inline-flex; align-items:center; justify-content:center; gap:9px; min-width:94px; min-height:32px; padding:5px 10px; color:#ecdfc1; border:1px solid #bda56e5c; background:#263328; border-radius:5px; font-size:11px; cursor:pointer; }
+.hand-workspace .hand-layout-trigger:hover,.hand-workspace .hand-toolbar-compact [aria-expanded=true] { background:#4d5134; border-color:#d8be82; }
+.modal:has(.hand-organizer-panel) { width:430px; max-height:calc(100dvh - 48px); overflow:auto; }
+.hand-organizer-panel { color:#ded7c2; }
+.hand-organizer-section { margin:0 0 18px; }
+.hand-organizer-section h3 { display:flex; align-items:baseline; gap:5px; margin:0 0 9px; font-size:12px; font-weight:500; color:#efe4ca; }
+.hand-organizer-section h3 strong { color:#f1d49a; font-size:15px; font-weight:500; }
+.hand-organizer-section h3 > span { margin-left:auto; color:#bebaa6; font-size:10px; font-weight:400; }
+.hand-organizer-options { display:flex; gap:8px; }
+.hand-organizer-options > button { display:flex; flex:1; align-items:center; justify-content:center; gap:7px; min-height:38px; padding:8px 10px; border:1px solid #b4bda04f; border-radius:5px; background:#17271e; color:#ece8d8; font-size:12px; cursor:pointer; }
+.hand-organizer-options > button:hover:enabled { border-color:#ddc58d; background:#3c4932; }
+.hand-organizer-options > button[aria-pressed=true] { border-color:#ddbf7d; background:#5b5739; color:#fff1cc; }
+.hand-organizer-options > button:disabled { opacity:.38; cursor:default; }
+.hand-organizer-options > button:focus-visible { outline:2px solid #f1d497; outline-offset:3px; }
+.hand-organizer-options small { padding:0 4px; border:1px solid #aaa98966; border-radius:3px; font-size:9px; }
+.hand-organizer-panel .hand-layout-icon { display:flex; align-items:center; gap:1px; height:12px; width:15px; }
+.hand-organizer-panel .hand-layout-icon i { display:block; width:4px; height:9px; border:1px solid currentColor; border-radius:1px; }
+.hand-organizer-panel .hand-layout-double { flex-wrap:wrap; gap:2px; height:14px; width:14px; }
+.hand-organizer-panel .hand-layout-double i { width:6px; height:5px; }
+.hand-organizer-panel .hand-layout-double i:last-child { width:14px; }
+.hand-organizer-panel .hand-layout-vertical { transform:rotate(90deg); }
+.hand-organizer-section p,.hand-organizer-footnote { margin:8px 0 0; font-size:10px; line-height:1.6; color:#c3c0ac; }
+.hand-organizer-secondary { padding-top:16px; border-top:1px solid #c4ae7433; margin-bottom:0; }
+.hand-organizer-footnote { color:#d1c7a9; text-align:center; margin-top:19px; }
+@media(max-width:1100px) {
+  .play-area .hand-workspace .hand-toolbar.hand-toolbar-compact { gap:9px; }
+  .hand-workspace .hand-toolbar-compact .hand-tools { gap:5px; }
+  .hand-workspace .hand-toolbar-compact .hand-tools button { padding-inline:9px; }
+}
+
+
+/* Keep advanced arrangement tools available without occupying a primary slot. */
+.hand-owner .hand-more-button { display:inline-flex; align-items:center; justify-content:center; flex:none; width:22px; height:20px; min-height:0; padding:0; border:0; border-radius:3px; background:transparent; color:#b8bea9; }
+.hand-owner .hand-more-button:hover { color:#eed6a5; background:#b5a46d20; }
+.hand-owner .hand-more-button:focus-visible { outline:2px solid #e3c589; outline-offset:2px; }

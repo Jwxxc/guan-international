@@ -1,0 +1,54 @@
+/* Selected material direction: ink-green felt, smoked walnut, antique brass.
+   Layout geometry stays in the existing responsive styles. Only decorative
+   surfaces change; table/card sizes, radii, padding and positions stay intact. */
+.table-screen .table-arena .table-felt {
+  border-color: transparent;
+  background:
+    url('/assets/table/felt-ink-v1.png') center / cover no-repeat padding-box,
+    url('/assets/table/walnut-smoked-v1.png') center / 540px 540px repeat border-box;
+  box-shadow:
+    inset 0 0 0 1.5px #cfab56,
+    inset 0 1px 0 2px #ead1951a,
+    inset 0 8px 18px #01110b40,
+    0 1px 0 1px #89643f88,
+    0 3px 0 2px #291b12,
+    0 8px 0 #120e0a,
+    0 12px 20px #0006;
+}
+
+.table-screen .table-arena .table-felt::before {
+  inset: -5px;
+  border: 1px solid #9a703742;
+  box-shadow: inset 0 1px #bd946728;
+}
+
+/* The generated cloth supplies the actual grain; remove the old noise layer. */
+.table-screen .table-arena .table-felt::after { content: none; }
+.table-screen .table-arena .felt-inner { border-color: #b7aa6720; }
+.table-screen .table-arena .table-watermark { opacity: .12; color: #b6ac80; }
+
+/* Keep real card faces, ranks and hit areas. Only the paper and contact light
+   change; existing selected/invalid/hover behavior retains its own emphasis. */
+.table-screen .playing-card { background: #fbf5e8; }
+.table-screen .hand-workspace .playing-card:not(.is-selected) {
+  border-color: #d4c7b0;
+  box-shadow: inset 0 1px #fffdf7, 0 1px 0 #dacbb0, 0 2px 0 #baa887, 0 4px 7px #080d0945;
+}
+
+.table-screen .round-plays .round-plays-card .playing-card {
+  background: #fcf7ec;
+  border-color: #d5c4a4;
+  box-shadow: inset 0 1px #fffef9, 0 1px 0 #ddceb3, 0 2px 0 #b9aa8a, 0 4px 5px #00100855, 0 9px 13px #00110924;
+}
+
+.table-screen .round-plays .round-plays-history .round-plays-card .playing-card {
+  background: #e6e8dc;
+  border-color: #b9c0ae;
+  box-shadow: inset 0 1px #f6f3e880, 0 1px 0 #aeba9f, 0 3px 5px #011a0f45;
+}
+
+.table-screen .round-plays-current .round-plays-pile::before {
+  border-color: #d1b779;
+  background: #d3ba7c08;
+  box-shadow: 0 4px 10px #02160d40;
+}

@@ -1,0 +1,119 @@
+.hand-workspace{--group-color-0:#c6aa78;--group-color-1:#91b5a4;--group-color-2:#a8a6c2;min-width:0;color:#dedacf;padding:0 9px}
+.hand-workspace button{font:inherit}
+.hand-workspace .hand-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:54px;padding:10px 5px 7px}
+.hand-workspace .hand-owner{display:flex;align-items:center;gap:9px;font-size:12px;white-space:nowrap}
+.hand-workspace .hand-owner strong{font-weight:500;letter-spacing:1px;color:#eee5d4}
+.hand-workspace .hand-owner>span:not(.hand-owner-dot){color:#94a59b;font-size:11px}
+.hand-workspace .hand-owner b{font-size:14px;font-weight:500;color:#ddd2ba;margin-right:2px}
+.hand-workspace .hand-owner em{font-size:10px;font-style:normal;color:#c6aa78}
+.hand-workspace .hand-owner-dot{height:5px;width:5px;border-radius:50%;background:#cfb985;box-shadow:0 0 12px #cfb98566}
+.hand-workspace .hand-view-controls{display:flex;align-items:center;gap:10px}
+.hand-workspace .hand-segment{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid #cfb9851b;border-radius:7px;background:#081b1880;box-shadow:inset 0 1px 3px #0003}
+.hand-workspace .hand-segment button{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid transparent;border-radius:4px;padding:5px 9px;background:transparent;color:#96aa9e;font-size:10px;white-space:nowrap;cursor:pointer;min-height:27px}
+.hand-workspace .hand-segment button[aria-pressed=true]{background:linear-gradient(#7f71542b,#a18a5614);border-color:#c5aa7130;color:#efddba;box-shadow:0 1px 4px #0003}
+.hand-workspace .hand-segment button:hover{color:#eee5d4;background-color:#ddd2ba0c}
+.hand-workspace .hand-controls-divider{height:17px;width:1px;background:#cfb98521}
+.hand-workspace .hand-layout-icon{height:12px;width:15px;display:flex;align-items:center;gap:1px;opacity:.7}
+.hand-workspace .hand-layout-icon i{display:block;width:4px;height:9px;border:1px solid currentColor;border-radius:1px}
+.hand-workspace .hand-layout-double{height:14px;flex-wrap:wrap;width:14px;gap:2px}
+.hand-workspace .hand-layout-double i{height:5px;width:6px}
+.hand-workspace .hand-layout-double i:last-child{width:14px}
+.hand-workspace .hand-layout-vertical{transform:rotate(90deg)}
+.hand-workspace .hand-tools{display:flex;align-items:center;gap:6px;padding:0 4px 9px;min-height:36px}
+.hand-workspace .hand-tools button{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:27px;padding:4px 9px;color:#aab8aa;font-size:10px;white-space:nowrap;border:1px solid #acb29d23;background:linear-gradient(#d9d6ba08,#d9d6ba02);border-radius:5px;cursor:pointer;transition:background .15s,border-color .15s}
+.hand-workspace .hand-tools button:hover:enabled{color:#e9dfc8;border-color:#c6aa7866;background:#c6aa7810}
+.hand-workspace .hand-tools button:disabled{opacity:.3;cursor:default}
+.hand-workspace .hand-tools button.hand-smart-button{color:#e3c99c;border-color:#c6aa7845;background:linear-gradient(#c6aa781b,#c6aa7809)}
+.hand-workspace .hand-tools button small{font-size:8px;border:1px solid #aab8aa26;border-radius:3px;padding:0 3px;opacity:.8}
+.hand-workspace .hand-tool-divider{width:1px;height:14px;margin:0 3px;background:#b1ae8b26}
+.hand-workspace .hand-tools-note{font-size:9px;letter-spacing:.6px;margin-left:auto;color:#7c9485;white-space:nowrap;padding-left:8px}
+.hand-workspace .hand-group-strip{display:flex;align-items:center;gap:6px;margin:0 4px 6px;padding:0 0 5px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#b69e6644 transparent;min-width:0}
+.hand-workspace .hand-group-summary{font-size:9px;color:#96a291;white-space:nowrap;margin-right:5px}
+.hand-workspace .hand-group-chip{flex:0 0 auto;display:flex;align-items:center;gap:5px;border:1px solid #bdc0a524;border-radius:4px;padding:3px 7px;color:#c2c6b6;background:#05201d44;cursor:pointer;font-size:9px;line-height:15px}
+.hand-workspace .hand-group-chip:hover{border-color:#c6aa7870;background:#c6aa7810}
+.hand-workspace .hand-group-chip>span{width:4px;height:4px;border-radius:50%;background:var(--group-color)}
+.hand-workspace .hand-group-chip small{font-size:8px;opacity:.65;margin-left:2px}
+.hand-workspace .hand{width:100%;min-height:122px;padding:13px 0 6px;display:flex;flex-direction:column;gap:21px;overflow:visible}
+.hand-workspace .hand-row{display:flex;align-items:flex-start;justify-content:center;max-width:100%;width:max-content;margin:0 auto;padding:0}
+.hand-workspace .hand-card-slot{position:relative;flex:0 0 var(--card-step);width:var(--card-step);height:108px}
+.hand-workspace .hand-card-slot:last-child{flex-basis:var(--hand-card-width);width:var(--hand-card-width)}
+.hand-workspace .hand-row .playing-card{height:108px;width:var(--hand-card-width);margin:0;position:relative}
+.hand-workspace .hand-row .playing-card:hover,.hand-workspace .hand-row .playing-card.is-selected{z-index:auto}
+.hand-workspace .hand-card-slot:not(:last-child) .card-corner-end,.hand-workspace .hand-card-slot:not(:last-child) .wild-tag{display:none}
+.hand-workspace .hand-card-slot:not(:last-child) .card-center{opacity:.28}
+.hand-workspace .hand-card-slot .playing-card.is-selected:after{left:8px;right:auto;bottom:7px;width:13px;height:13px;line-height:13px;font-size:9px}
+.hand-workspace .hand-row .card-corner{left:7px;top:7px}
+.hand-workspace .hand-row .card-corner b{font-size:23px}
+.hand-workspace .hand-row .card-corner span{font-size:18px}
+.hand-workspace .hand-row .joker-corner b{font-size:12px}
+.hand-workspace .hand-group-line{position:absolute;bottom:-5px;height:2px;left:0;right:0;background:var(--group-color);opacity:.7;pointer-events:none}
+.hand-workspace .starts-hand-group .hand-group-line{left:3px;border-radius:2px 0 0 2px}
+.hand-workspace .hand-card-slot:last-child .hand-group-line{right:3px}
+.hand-workspace .hand-notice{font-size:10px;line-height:1.5;color:#b1bda8;margin:8px 4px 0;min-height:15px}
+.hand-workspace .hand-columns{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:17px 10px;padding:0 4px}
+.hand-workspace .hand-column{width:var(--hand-card-width);flex:0 0 var(--hand-card-width);position:relative}
+.hand-workspace .hand-column-label{height:21px;display:flex;align-items:center;justify-content:space-between;color:#a5b5a4;font-size:9px;white-space:nowrap;overflow:hidden;gap:3px;margin:0 3px 4px}
+.hand-workspace .hand-column-label small{font-size:8px;color:#8a9c8d;border:1px solid #c6aa7823;border-radius:3px;min-width:12px;text-align:center;flex:0 0 auto}
+.hand-workspace .hand-column-grouped .hand-column-label{color:#dec89d}
+.hand-workspace .hand-column-cards{display:flex;flex-direction:column;padding-bottom:0}
+.hand-workspace .hand-column-cards .playing-card{width:var(--hand-card-width);height:103px;margin-top:-72px;flex-shrink:0;position:relative}
+.hand-workspace .hand-column-cards .playing-card:first-child{margin-top:0}
+.hand-workspace .hand-column-cards .playing-card.is-selected{transform:translateX(-5px);z-index:auto}
+.hand-workspace .hand-column-cards .playing-card:not(:last-child) .card-corner-end,.hand-workspace .hand-column-cards .playing-card:not(:last-child) .card-center,.hand-workspace .hand-column-cards .playing-card:not(:last-child) .wild-tag{display:none}
+.hand-workspace .hand-column-cards .card-corner{flex-direction:row;top:5px;left:6px;gap:4px}
+.hand-workspace .hand-column-cards .card-corner b{font-size:21px}
+.hand-workspace .hand-column-cards .card-corner span{font-size:17px}
+.hand-workspace .hand-column-cards .joker-corner b{font-size:12px;writing-mode:horizontal-tb;line-height:1.4}
+.hand-workspace .hand-column-cards .card-corner-end{left:auto;top:auto;right:6px;bottom:6px}
+.hand-workspace .hand-column-cards .playing-card.is-selected:after{left:auto;right:4px;bottom:4px}
+.hand-workspace button:focus-visible{outline:2px solid #e4c98c;outline-offset:3px}
+@media(max-width:1100px){.hand-workspace{padding:0 3px}.hand-workspace .hand-toolbar{min-height:48px;padding-top:7px}.hand-workspace .hand{min-height:110px;padding-top:12px}.hand-workspace .hand-row .playing-card,.hand-workspace .hand-card-slot{height:99px}.hand-workspace .hand-tools{padding-bottom:6px}.hand-workspace .hand-segment button{padding:4px 7px}.hand-workspace .hand-columns{gap:15px 7px}.hand-workspace .hand-column{width:62px;flex-basis:62px}.hand-workspace .hand-column-cards .playing-card{width:62px;height:91px;margin-top:-63px}.hand-workspace .hand-column-cards .playing-card:first-child{margin-top:0}.hand-workspace .hand-column-cards .card-corner b{font-size:19px}}
+@media(max-width:740px){.hand-workspace .hand-toolbar{align-items:flex-start;flex-wrap:wrap;gap:6px}.hand-workspace .hand-owner{padding:4px 0}.hand-workspace .hand-view-controls{gap:6px;margin-left:auto}.hand-workspace .hand-segment button{font-size:9px;padding:4px 6px}.hand-workspace .hand-tools{flex-wrap:wrap;gap:5px;padding-top:4px}.hand-workspace .hand-tools-note{display:none}.hand-workspace .hand-tools button{font-size:10px;min-height:29px}.hand-workspace .hand-controls-divider{display:none}.hand-workspace .hand-columns{gap:14px 7px}.hand-workspace .hand-row .playing-card,.hand-workspace .hand-card-slot{height:96px}.hand-workspace .hand-row .card-corner b{font-size:21px}.hand-workspace .hand-row .joker-corner b{font-size:11px}.hand-workspace .hand-notice{font-size:9px}}
+
+/* Expanded layouts share a bounded card shelf. Every rank/suit strip remains
+   exposed; the second row overlaps only decorative lower card faces. */
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical){position:relative}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-toolbar{min-height:38px;height:38px;padding:2px 4px 3px}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-segment{padding:2px}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-segment button{min-height:25px;padding-top:3px;padding-bottom:3px}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-tools{min-height:28px;height:28px;padding:0 4px 2px;gap:5px}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-tools button{min-height:25px;padding:3px 8px}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-group-strip{height:23px;min-height:23px;padding:0;margin:1px 4px 1px;scrollbar-width:none}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-group-strip::-webkit-scrollbar{height:0}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-group-chip{padding:1px 6px;line-height:15px}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical) .hand-notice{position:absolute;left:500px;right:5px;top:43px;margin:0;height:17px;min-height:0;line-height:17px;font-size:9px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.hand-workspace:has(.hand-two-rows,.hand-display-vertical):has(.hand-notice) .hand-tools-note{visibility:hidden}
+.hand-workspace .hand.hand-two-rows{min-height:0;padding:10px 0 7px;gap:0}
+.hand-workspace .hand-two-rows .hand-row+.hand-row{margin-top:-34px}
+.hand-workspace .hand-two-rows .hand-row .playing-card,.hand-workspace .hand-two-rows .hand-card-slot{height:88px}
+.hand-workspace .hand-two-rows .hand-row .card-corner{top:5px;left:7px;gap:2px}
+.hand-workspace .hand-two-rows .hand-row .card-corner b{font-size:21px}
+.hand-workspace .hand-two-rows .hand-row .card-corner span{font-size:16px}
+.hand-workspace .hand-two-rows .hand-row .joker-corner b{font-size:11px}
+.hand-workspace .hand-two-rows .playing-card.is-selected{transform:translateY(-3px)}
+.hand-workspace .hand-two-rows .hand-row:not(:last-child) .hand-group-line{bottom:auto;top:50px;z-index:1}
+.hand-workspace .hand.hand-display-vertical{min-height:0;padding:7px 0 4px;gap:0}
+.hand-workspace .hand-columns{flex-wrap:nowrap;gap:6px;padding:0 4px}
+.hand-workspace .hand-column{width:var(--hand-column-width);flex-basis:var(--hand-column-width)}
+.hand-workspace .hand-column-label{height:16px;margin:0 2px 2px;font-size:8px;line-height:14px}
+.hand-workspace .hand-column-label small{font-size:7px;min-width:10px;line-height:11px}
+.hand-workspace .hand-column-cards .playing-card{width:var(--hand-column-width);height:52px;margin-top:-26px;border-radius:5px}
+.hand-workspace .hand-column-cards .playing-card:first-child{margin-top:0}
+.hand-workspace .hand-column-cards .card-corner{top:4px;left:5px;gap:3px;align-items:baseline}
+.hand-workspace .hand-column-cards .card-corner b{font-size:19px;line-height:20px}
+.hand-workspace .hand-column-cards .card-corner span{font-size:14px;line-height:18px}
+.hand-workspace .hand-column-cards .joker-corner b{font-size:12px;line-height:20px}
+.hand-workspace .hand-column-cards .joker-corner>span{display:none}
+.hand-workspace .hand-column-cards .playing-card.is-selected{transform:translateX(-3px)}
+.hand-workspace .hand-column-cards .card-corner-end{display:none}
+.hand-workspace .hand-column-cards .wild-tag{display:none}
+.hand-workspace .hand-column-cards .card-pips{opacity:.26}
+.hand-workspace .hand-column-cards .card-center{opacity:.25}
+.hand-workspace .hand-column-cards .selected-tick{right:3px;bottom:3px;width:10px;height:10px;font-size:8px}
+.hand-workspace .hand-column-cards .wild-corner-dot{top:1px;right:-7px;width:3px;height:3px}
+
+/* Pointer painting stays local to the hand; normal page/touch gestures remain available. */
+.hand-workspace .hand, .hand-workspace .hand .playing-card { user-select: none; -webkit-user-select: none; }
+.hand-workspace .hand[data-dragging] { cursor: grabbing; }
+.hand-workspace .hand[data-dragging] .playing-card { cursor: grabbing; transition: none; }
+.hand-workspace .hand[data-dragging="select"] { filter: drop-shadow(0 0 5px #d6b67414); }

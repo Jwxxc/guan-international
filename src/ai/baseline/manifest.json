@@ -1,0 +1,35 @@
+{
+  "manifestVersion": 1,
+  "createdAt": "2026-09-19T18:05:54.265828+00:00",
+  "displayName": "原版",
+  "source": "Actual pre-v0.4 controller/hint strategy; original entry files retained",
+  "implementationFingerprint": "7c06da7a1d80b49c583c9692611241421e4d9bfd29ec170eb6e43c8f878a98c7",
+  "files": [
+    {
+      "source": "src/ai/policy.ts",
+      "frozen": "src/ai/baseline/policy.ts",
+      "sourceSha256": "43ea989f8f4cb5142213f92731382d19c6f1c7f9272bf7eb76d675b710b53bf3",
+      "frozenSha256": "91617051062df3786cd5569e1b380e22c58618fa60bdfe9e6641235a187b73d9",
+      "onlyChange": "Relative engine imports ../engine/ -> ../../engine/"
+    },
+    {
+      "source": "src/ai/evaluation.ts",
+      "frozen": "src/ai/baseline/evaluation.ts",
+      "sourceSha256": "28114fdce6869ca8a33d6ba58a85bf3663f38dc6d3c853a8d9a5776712f7ec72",
+      "frozenSha256": "53965892b00f2af68e8ea4b28c840b4e670bf1c26f865915ffc572b19921c1bc",
+      "onlyChange": "Relative engine imports ../engine/ -> ../../engine/"
+    }
+  ],
+  "sharedRuleAndCandidateDependencies": {
+    "src/engine/cards.ts": "45f97cf4edcc1b40fa17840c7eed4bdefe1268217d9a10b99d758b55e7f50aea",
+    "src/engine/compare.ts": "f87d5c89ae298c613eb12c6c37b9c275497e6c596e6701587da217ae85e72695",
+    "src/engine/legalMoves.ts": "3cb36d0bf2cc5ee307d76778dd2209e5bde0d94ce2e17c5a29a9060239517f32",
+    "src/engine/naturalStructures.ts": "c8108b1dc98b429cb37953afe20429688eee321e447df0976a24e2e49ec3d3cf",
+    "src/engine/observations.ts": "2ce6a1452b78c6f26d5e712f4d5ea42c76294f067f5a726fe7a703cf0cc2df9a",
+    "src/engine/patterns.ts": "caeed1b78233e6a178ed6f70e65e1fedd1c4e3ec5880bc448cf1cd18ec392157",
+    "src/engine/reducer.ts": "5a7c9e359992cb4d02e447878980917e81c122ab8d92d41fce78cfef3e33c32f",
+    "src/engine/rules.ts": "e0b7cddb274086980df62f7cea3209a83d08db06ae532dadb26a2ea46467b33c",
+    "src/engine/types.ts": "3eb37dde7733dcf6612fa4a094f822a5fe99cc94c6dd89f060b6d56ffa27fae3"
+  },
+  "fairness": "Both strategies use the same getLegalMoves and unchanged rules. No candidate reduction, artificial budget limit or score weakening was applied to the baseline."
+}

@@ -1,0 +1,115 @@
+/* Stay within the existing header allocation; only the decoration overflows
+   vertically, without changing the text's width, baseline or hit targets. */
+.brand-motto-scene {
+  display: inline-flex;
+  vertical-align: baseline;
+  isolation: isolate;
+}
+
+.motto-phrase {
+  position: relative;
+  display: inline-block;
+}
+
+.motto-ink {
+  position: relative;
+  z-index: 1;
+  color: #e5dfc6;
+}
+
+.motto-atmosphere {
+  position: absolute;
+  top: -6px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 11px);
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 16%, #000 82%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 16%, #000 82%, transparent);
+}
+
+.motto-atmosphere path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: .85;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.motto-cloud .motto-atmosphere { color: #eee8cf; opacity: .62; }
+.motto-water .motto-atmosphere { color: #bce9d9; opacity: .78; }
+
+/* A soft cloud bank drifts behind the fine cloud contours, above the letters. */
+.motto-cloud::before {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  inset: -5px -2px 5px;
+  background:
+    radial-gradient(ellipse at 30% 40%, #edf3da59 0%, #e0e8d520 30%, transparent 65%),
+    radial-gradient(ellipse at 70% 55%, #fff2cc38 0%, transparent 60%);
+  filter: blur(2px);
+  opacity: .55;
+  animation: motto-cloud-breathe 7s ease-in-out infinite alternate;
+}
+
+.motto-cloud-drift { animation: motto-cloud-drift 7s ease-in-out infinite alternate; }
+.motto-cloud-drift path + path { opacity: .5; }
+.motto-water-current { animation: motto-water-current 3.4s linear infinite; }
+.motto-water-current-back { opacity: .5; animation-duration: 5.2s; animation-direction: reverse; }
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .motto-ink {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 240% 100%;
+  }
+
+  .motto-cloud .motto-ink {
+    background-image: linear-gradient(105deg, #c1b78e 0%, #d5dfce 22%, #fffbed 38%, #fffbed 45%, #c9d7c8 62%, #d5bd88 80%, #c1b78e 100%);
+    animation: motto-cloud-light 6s ease-in-out infinite alternate;
+  }
+
+  .motto-water .motto-ink {
+    background-image: repeating-linear-gradient(115deg, #b0ccb9 0%, #b0ccb9 12%, #f4f9dc 21%, #f4f9dc 25%, #8fbeaf 37%, #d8ce99 50%);
+    background-size: 200% 100%;
+    animation: motto-water-light 3.4s linear infinite;
+  }
+}
+
+@keyframes motto-cloud-drift {
+  from { transform: translate(-12px, 1px); opacity: .45; }
+  to { transform: translate(10px, -1px); opacity: .95; }
+}
+
+@keyframes motto-cloud-breathe {
+  from { transform: translateX(-7px); opacity: .3; }
+  to { transform: translateX(7px); opacity: .7; }
+}
+
+@keyframes motto-cloud-light {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+/* Each wave repeats every 32 SVG units, so the loop has no visible seam. */
+@keyframes motto-water-current {
+  from { transform: translateX(0); }
+  to { transform: translateX(-32px); }
+}
+
+@keyframes motto-water-light {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+.reduced-motion .motto-atmosphere,
+.reduced-motion .motto-cloud::before { display: none; }
+.reduced-motion .motto-ink { animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .motto-atmosphere, .motto-cloud::before { display: none; }
+  .motto-ink { animation: none; }
+}

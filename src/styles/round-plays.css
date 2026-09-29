@@ -1,0 +1,133 @@
+/* Four ownership zones on the felt. All flights are presentation only. */
+.round-plays {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  /* Flying cards and expanding bursts must never enlarge the document and
+     toggle its scrollbars. Clip only this arena-sized presentation layer;
+     hand controls and the portalled history dialog remain reachable. */
+  overflow: clip;
+  isolation: isolate;
+  --round-active-width: 58px;
+  --round-active-height: 82px;
+  --round-active-step: 29px;
+  --round-history-width: 44px;
+  --round-history-height: 62px;
+  --round-history-step: 24px;
+  --round-slot-width: clamp(228px, 21vw, 286px);
+}
+.round-plays-slot {
+  position: absolute;
+  width: var(--round-slot-width);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #d1d9c5;
+  --round-flight-x: 0px;
+  --round-flight-y: 0px;
+  --round-flight-angle: 0deg;
+  --round-card-width: var(--round-history-width);
+  --round-card-height: var(--round-history-height);
+  --round-card-step: var(--round-history-step);
+}
+.round-plays-current {
+  --round-card-width: var(--round-active-width);
+  --round-card-height: var(--round-active-height);
+  --round-card-step: var(--round-active-step);
+  z-index: 1;
+}
+.round-plays-top { left: 50%; top: 91px; transform: translateX(-50%); --round-flight-y: -96px; --round-flight-angle: -3deg; }
+.round-plays-right { left: 77%; top: 54%; --round-flight-x: 142px; --round-flight-angle: 9deg; }
+.round-plays-bottom { left: 50%; bottom: 27px; transform: translateX(-50%); --round-flight-y: 126px; --round-flight-angle: 3deg; }
+.round-plays-left { left: 23%; top: 54%; --round-flight-x: -142px; --round-flight-angle: -9deg; }
+.round-plays-empty-slot { visibility: hidden; }
+.round-plays-owner { display: flex; justify-content: center; align-items: center; gap: 6px; margin: 0 0 4px; min-height: 17px; font-size: 11px; line-height: 1.2; white-space: nowrap; text-shadow: 0 1px 4px #00160ca8; }
+.round-plays-owner strong { font-weight: 650; color: #eef0db; letter-spacing: .6px; }
+.round-plays-current .round-plays-owner strong { font-size: 14px; color: #fff0cc; }
+.round-plays-role { color: #e0e6d2; font-size: 10px; }
+.round-plays-live { border: 1px solid #dbc58ab3; color: #fff0b9; background: #564f2980; padding: 3px 6px; border-radius: 4px; font-size: 10px; }
+.round-plays-pile { display: flex; align-items: flex-start; justify-content: center; width: max-content; margin: 0 auto; position: relative; }
+.round-plays-card { position: relative; flex: 0 0 var(--round-card-width); width: var(--round-card-width); height: var(--round-card-height); }
+.round-plays-card + .round-plays-card { margin-left: calc(var(--round-card-step) - var(--round-card-width)); }
+.round-plays .round-plays-card .playing-card { width: 100%; height: 100%; border-radius: 5px; border-color: #d2cdb9; background: linear-gradient(130deg, #fffaf0, #f0eddf); box-shadow: 0 4px 7px #001d0b50; }
+.round-plays-history .round-plays-card .playing-card { background: linear-gradient(130deg, #e9e8dc, #dbdfd1); border-color: #bac3ae; box-shadow: 0 2px 4px #00190d40; }
+.round-plays-current .round-plays-pile:before { content: ''; position: absolute; inset: -5px -7px; border-radius: 8px; border: 1px solid #e2c67b; background: #d9c27910; box-shadow: 0 5px 16px #061c1740; }
+.round-plays .card-corner { top: 5px; left: 3px; gap: 2px; }
+.round-plays .card-corner b { font-size: 17px; }
+.round-plays .card-corner span { font-size: 14px; }
+.round-plays-current .card-corner b { font-size: 21px; }
+.round-plays-current .card-corner span { font-size: 17px; }
+.round-plays .card-center { font-size: 29px; }
+.round-plays .card-corner-end { left: auto; top: auto; right: 5px; bottom: 5px; }
+.round-plays .card-corner-end b { font-size: 12px; }
+.round-plays .card-corner-end span { font-size: 10px; }
+.round-plays .joker-corner b { font-size: 11px; }
+.round-plays .joker-corner span { font-size: 11px; }
+.round-plays-current .joker-corner b { font-size: 13px; }
+.round-plays-current .joker-corner span { font-size: 13px; }
+.round-plays-card:not(:last-child) .card-center { left: 75%; opacity: .15; }
+.round-plays-card:not(:last-child) .card-corner-end, .round-plays-card:not(:last-child) .wild-tag { display: none; }
+.round-plays .wild-tag { top: 4px; right: 3px; font-size: 7px; padding: 1px 2px; }
+.round-plays-caption { display: flex; justify-content: center; align-items: center; gap: 6px; min-height: 14px; margin-top: 5px; font-size: 10px; color: #e0e5d4; text-shadow: 0 1px 3px #092b1c; }
+.round-plays-current .round-plays-caption { color: #fff0c9; font-size: 12px; font-weight: 550; }
+.round-plays-superseded { color: #c4d0b9; font-size: 9px; }
+.round-plays-pass { border: 1px solid #b9c6ae5c; border-radius: 3px; font-size: 9px; font-weight: 500; padding: 0 5px; color: #e0e5d5; }
+.round-plays-pass-only { display: inline-block; border: 1px solid #abbda63d; border-radius: 20px; background: #123b2a45; color: #d7e0cb; padding: 5px 18px; letter-spacing: 3px; font-size: 13px; }
+.round-plays-wild { margin: 2px auto 0; max-width: 100%; color: #e1d3ac; font-size: 9px; line-height: 1.35; overflow-wrap: anywhere; }
+.round-plays-current .round-plays-wild { color: #f5dfa8; font-size: 10px; }
+.round-history-detail-button { display: none; pointer-events: auto; border: 1px solid #b7bf9f7a; border-radius: 4px; padding: 3px 7px; background: #173c2deb; color: #eee5c9; font: inherit; font-size: 10px; line-height: 18px; cursor: pointer; }
+.round-history-detail-button:hover { background: #31533d; border-color: #d5c894; }
+.round-history-detail-button:focus-visible { outline: 2px solid #f0d798; outline-offset: 3px; }
+.round-history-detail-label { display: flex; justify-content: center; align-items: center; gap: 12px; color: #f4e1b5; font-size: 16px; }
+.round-history-detail-label span { color: #c8cbb8; font-size: 12px; }
+.round-history-detail-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 12px 0; }
+.round-history-detail-cards .playing-card { width: 64px; height: 90px; }
+.round-history-detail-mapping { text-align: center; color: #efdfb9; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.round-history-detail-note { margin: 12px 0 0; text-align: center; color: #c9c8b6; font-size: 12px; line-height: 1.5; }
+.player-seat .seat-role .seat-action-label { display: inline-flex; align-items: center; gap: 4px; color: #e8d6a5; font-size: 10px; font-weight: 600; }
+.player-seat .seat-role .seat-action-label:before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+.round-plays-lead { position: absolute; left: 50%; top: 51%; transform: translate(-50%, -50%); color: #dde3cd; text-align: center; }
+.round-plays-lead > span { color: #d6c18d; font-size: 11px; letter-spacing: 5px; }
+.round-plays-lead p { margin: 10px 0 0; font-size: 16px; letter-spacing: 2px; }
+.round-plays-lead small { display: block; margin-top: 7px; color: #a6bca2; font-size: 10px; }
+.round-plays-announcement { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.round-plays-enter .round-plays-card { animation: round-plays-flight 420ms cubic-bezier(.16,.72,.2,1) var(--round-card-delay, 0ms) both; }
+@keyframes round-plays-flight {
+  from { opacity: .1; transform: translate(var(--round-flight-x), var(--round-flight-y)) rotate(var(--round-flight-angle)) scale(.91); }
+  75% { opacity: 1; }
+  to { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+@media (max-width: 1100px) {
+  .round-plays { --round-active-width: 48px; --round-active-height: 68px; --round-active-step: 25px; --round-history-width: 40px; --round-history-height: 54px; --round-history-step: 23px; }
+  .round-plays-owner { margin-bottom: 3px; gap: 5px; min-height: 14px; font-size: 10px; }
+  .round-plays-role { font-size: 9px; }
+  .round-plays-live { padding: 2px 4px; font-size: 9px; }
+  .round-plays-current .round-plays-owner strong { font-size: 12px; }
+  .round-plays-caption { margin-top: 3px; min-height: 12px; font-size: 9px; }
+  .round-plays-wild { font-size: 8px; line-height: 1.25; }
+  .round-plays .round-plays-top { top: 60px; --round-flight-y: -76px; }
+  .round-plays .round-plays-bottom { bottom: 16px; --round-flight-y: 104px; }
+  .round-plays-left { --round-flight-x: -105px; }
+  .round-plays-right { --round-flight-x: 105px; }
+  .round-plays .card-corner { top: 4px; left: 3px; }
+  .round-plays .card-corner b { font-size: 16px; }
+  .round-plays .card-corner span { font-size: 13px; }
+  .round-plays-current .card-corner b { font-size: 18px; }
+  .round-plays-current .card-corner span { font-size: 15px; }
+  .round-plays .joker-corner b { font-size: 10px; }
+  .round-plays .card-center { font-size: 25px; }
+  .round-plays .card-corner-end { top: auto; left: auto; }
+  .round-plays .card-corner-end b { font-size: 11px; }
+  .round-plays .card-corner-end span { font-size: 9px; }
+  .round-plays-current .round-plays-caption { font-size: 11px; }
+  .round-plays-current .round-plays-wild { font-size: 9px; }
+}
+/* Compact older public plays only when measured center space cannot hold both.
+   Detail remains keyboard-accessible; layout mode alone never shrinks the table. */
+.round-plays .is-compact-history { display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 7px; }
+.round-plays .is-compact-history .round-plays-pile,.round-plays .is-compact-history .round-plays-wild { display:none; }
+.round-plays .is-compact-history .round-plays-owner,.round-plays .is-compact-history .round-plays-caption { display:inline-flex;margin:0;min-height:0;line-height:1.3; }
+.round-plays .is-compact-history .round-plays-superseded { display:none; }
+.round-plays .is-compact-history .round-history-detail-button { display:inline-flex; }
+@media (prefers-reduced-motion: reduce) { .round-plays-enter .round-plays-card { animation: none; } }
+.reduced-motion .round-plays-enter .round-plays-card { animation: none; }

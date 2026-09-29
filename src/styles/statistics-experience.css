@@ -1,0 +1,38 @@
+.statistics-dialog .statistics-intro { margin-bottom: 16px; font-size: 13px; }
+.statistics-view-tabs { display: flex; gap: 6px; margin-bottom: 20px; padding: 5px; border: 1px solid #cbb18430; border-radius: 10px; background: #111f1866; }
+.statistics-view-tabs button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1; min-height: 42px; padding: 9px 14px; border-radius: 6px; color: #c8bfab; background: transparent; font-size: 14px; }
+.statistics-view-tabs button[aria-selected=true] { color: #f6e6c5; background: #c5ab7526; box-shadow: inset 0 0 0 1px #d3b57f55; }
+.statistics-view-tabs button:focus-visible, .statistics-breakdown > summary:focus-visible, .analysis-record-details > summary:focus-visible { outline: 2px solid #e4c286; outline-offset: 3px; }
+.statistics-dialog [role=tabpanel][hidden] { display: none; }
+.statistics-dialog .statistics-filters { flex-wrap: wrap; gap: 12px; padding-bottom: 16px; }
+.statistics-dialog .statistics-selects { flex-wrap: wrap; gap: 10px; }
+.statistics-dialog .statistics-selects label, .statistics-dialog .statistics-metrics > div > span, .statistics-dialog .statistics-definition { font-size: 12px; }
+.statistics-dialog .statistics-metrics p, .statistics-dialog .statistics-recent p { font-size: 11px; }
+.statistics-dialog .statistics-history { margin-bottom: 18px; }
+.statistics-dialog .statistics-history-heading { gap: 12px; flex-wrap: wrap; }
+.statistics-dialog .statistics-table-wrap th { padding: 11px 12px; font-size: 11px; }
+.statistics-dialog .statistics-table-wrap td { padding: 12px; }
+.statistics-dialog .statistics-table-wrap td:first-child { font-size: 12px; }
+.statistics-replay-button { white-space: nowrap; min-height: 36px; padding: 7px 8px; border: 1px solid #c9ab7444; border-radius: 5px; color: #ead0a1; }
+.statistics-replay-button:hover:not(:disabled) { background: #c9ab7417; border-color: #c9ab74aa; }
+.statistics-replay-unavailable { display: inline-block; color: #b5ad99; font-size: 11px; }
+.statistics-breakdown { margin: 8px 0 0; border-top: 1px solid var(--line); }
+.statistics-breakdown > summary { cursor: pointer; padding: 17px 0; color: #dec9a4; font-size: 13px; }
+.statistics-breakdown[open] > summary { margin-bottom: 2px; }
+.statistics-dialog .analysis-archive { margin-top: 0; padding: 18px; }
+.analysis-record-details { margin-top: 8px; color: #b9af98; font-size: 11px; }
+.analysis-record-details summary { width: fit-content; cursor: pointer; padding: 3px 0; }
+.analysis-archive-actions .archive-replay-button { color: #efcea0; }
+.statistics-dialog .statistics-error { font-size: 12px; }
+.statistics-dialog .statistics-error p { margin: 0 0 8px; }
+.statistics-dialog .statistics-error .secondary-button { min-height: 34px; padding: 7px 12px; font-size: 12px; }
+@media (max-width: 520px) {
+  .statistics-view-tabs { margin-bottom: 16px; }
+  .statistics-dialog .statistics-filters { align-items: stretch; }
+  .statistics-dialog .statistics-segment { width: 100%; }
+  .statistics-dialog .statistics-segment button { flex: 1; padding: 10px; }
+  .statistics-dialog .statistics-selects { gap: 8px; }
+  .statistics-dialog .statistics-selects label { flex-wrap: wrap; }
+  .statistics-dialog .analysis-archive { padding: 14px; }
+  .analysis-archive-actions { gap: 12px; }
+}

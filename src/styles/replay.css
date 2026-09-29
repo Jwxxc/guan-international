@@ -1,0 +1,43 @@
+.replay-screen { display:flex; flex-direction:column; height:100dvh; min-height:0; background:#211d15; }
+.replay-screen > .replay-toolbar { flex:0 0 auto; margin:0 32px; }
+.app .replay-screen > .table-screen { flex:1 1 auto; height:auto; min-height:0; grid-template-rows:minmax(220px,1fr) auto; }
+.replay-screen > .replay-exchange-screen { flex:1 1 auto; min-height:0; }
+.replay-toolbar { flex-wrap:wrap; gap:8px 12px; padding:8px 0 5px; font-size:12px; }
+.replay-toolbar .replay-steps { flex-wrap:wrap; gap:6px; }
+.replay-toolbar .replay-steps .secondary-button { min-height:32px; font-size:12px; }
+.replay-toolbar .replay-steps > span { min-width:60px; font-size:12px; }
+.replay-view { white-space:nowrap; color:#d1c3a4; font-size:12px; }
+.replay-view input { width:15px; height:15px; }
+.replay-next-play:not(:disabled) { border-color:#c5a9698c; color:#edcf91; }
+.replay-timeline { display:flex; flex:1 0 100%; align-items:center; gap:12px; min-width:0; color:#d1c3a4; font-size:12px; }
+.replay-timeline > span { flex:none; }
+.replay-timeline input { display:block; flex:1 1 auto; min-width:50px; height:24px; margin:0; cursor:pointer; accent-color:#d3b377; }
+.replay-timeline input:disabled { cursor:default; opacity:.5; }
+.replay-timeline input:focus-visible { outline:2px solid #e3c589; outline-offset:3px; border-radius:5px; }
+.replay-timeline-hint { font-size:11px; color:#b8aa8e; }
+.match-replay-toolbar { min-height:49px; }
+.replay-hand-picker { display:flex; align-items:center; gap:7px; color:#d1c3a4; white-space:nowrap; font-size:12px; }
+.replay-hand-picker select { min-width:145px; min-height:32px; padding:6px 9px; background:#283024; border:1px solid #b49b615c; border-radius:4px; color:#e4d3ac; font:inherit; }
+.match-replay-toolbar .replay-steps { margin-left:auto; }
+.replay-event { font-size:11px; color:#c5b796; }
+.match-replay-event { max-width:calc(100vw - 80px); justify-content:center; text-align:center; line-height:1.5; }
+.replay-exchange-screen { padding-top:5px; padding-bottom:40px; }
+.replay-exchange-screen .exchange-header { margin-top:15px; }
+.replay-exchange-screen .exchange-header > .exchange-level { margin-left:auto; }
+.replay-phase-badge { color:#d1c3a4; border:1px solid #b79c633c; border-radius:4px; padding:6px 10px; font-size:12px; }
+@media(max-width:1100px) {
+  .replay-screen > .replay-toolbar { margin-inline:19px; }
+  .replay-toolbar { gap:7px 10px; }
+  .replay-hand-picker { gap:4px; }
+  .replay-hand-picker select { min-width:124px; padding-inline:5px; }
+  .replay-toolbar .replay-steps { gap:4px; }
+  .replay-toolbar .replay-steps .secondary-button { padding-inline:7px; }
+}
+@media(max-width:720px) {
+  .replay-screen > .replay-toolbar { margin-inline:12px; }
+  .replay-toolbar .replay-steps { flex-basis:100%; justify-content:center; order:2; margin-left:0; }
+  .replay-timeline { order:3; gap:8px; }
+  .replay-timeline-hint { display:none; }
+  .replay-toolbar .replay-view { margin-left:auto; }
+  .match-replay-event { max-width:calc(100vw - 24px); }
+}

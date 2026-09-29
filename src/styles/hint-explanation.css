@@ -1,0 +1,17 @@
+.hint-explanation-trigger {
+  display:inline; margin:0; padding:0; border:0; border-radius:2px;
+  background:none; color:inherit; font:inherit; line-height:inherit; text-align:left;
+  white-space:normal; cursor:help; text-decoration:underline dotted #d9bc7977; text-underline-offset:4px;
+}
+.hint-explanation-trigger:hover { color:#ffe4ae; }
+.hint-explanation-trigger:focus-visible { outline:2px solid #e3c589; outline-offset:3px; }
+.hint-explanation-mark { display:inline-block; margin-left:6px; color:#ddc38d; font-size:12px; text-decoration:none; }
+.hint-explanation-panel {
+  position:fixed; z-index:90; box-sizing:border-box; width:350px; max-width:calc(100vw - 24px); max-height:calc(100dvh - 24px);
+  overflow:auto; padding:15px 17px 13px; border:1px solid #b69c62; border-radius:10px;
+  background:linear-gradient(135deg,#303a2c,#202d24); color:#ece7d6; box-shadow:0 8px 28px #0007;
+  font:14px/1.65 var(--font); text-align:left;
+}
+.hint-explanation-panel > strong { display:block; color:#f0d29a; font-size:14px; font-weight:600; }
+.hint-explanation-panel > p { margin:9px 0 0; }
+.hint-explanation-panel > small { display:block; margin-top:11px; padding-top:9px; border-top:1px solid #c7b07a30; color:#aebba9; font-size:11px; }

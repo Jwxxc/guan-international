@@ -1,0 +1,79 @@
+/* Size by the real CSS viewport, not the Fold's physical pixel resolution.
+   Android's container removes system-bar/cutout insets before WebView layout. */
+.hand-workspace .hand .playing-card { touch-action:none; -webkit-touch-callout:none; }
+
+@media (max-width:1023px) {
+  .app > .small-screen-message { display:none; }
+  .app .table-screen {
+    width:100%; min-width:0; min-height:100dvh; height:100dvh;
+    grid-template-rows:minmax(220px,1fr) auto;
+    padding:8px max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));
+    gap:8px;
+  }
+  .app .table-screen:has(> .replay-toolbar) { grid-template-rows:auto minmax(220px,1fr) auto; }
+  .app .table-screen .play-area .decision-zone {
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:8px 12px; padding:8px 10px;
+  }
+  .decision-zone > .decision-copy { grid-column:1/-1; }
+  .decision-zone > .decision-hand-tools { grid-column:1; grid-row:2; }
+  .decision-zone > .action-buttons { grid-column:2; grid-row:2; }
+  .app .decision-hand-tools .hand-toolbar { width:236px; max-width:100%; }
+  .app .table-screen .play-area .decision-replay { grid-template-columns:1fr; }
+  .app .table-screen .play-area .decision-replay > .decision-hand-tools { grid-row:auto; }
+  .app .table-screen .play-area .action-buttons { gap:6px; }
+  .app .table-screen .play-area .action-buttons > button { min-width:66px; min-height:44px; padding-inline:10px; }
+  .app .table-screen .play-area .action-buttons .play-button { min-width:86px; }
+  .app .table-screen .play-area .action-buttons .clear-selection-button { min-width:72px; }
+  .app .table-arena .practice-label.brand-motto { display:none; }
+  .app .table-arena .header-actions { gap:10px; }
+  .app .table-arena .header-actions .quiet-button { min-height:40px; }
+  .app .home-screen { height:100dvh; min-height:580px; padding:20px 5vw; }
+  .app .home-content { align-items:center; }
+  .app .home-copy { max-width:70%; padding:20px 0; }
+  .app .home-header { gap:12px; }
+  .app .home-nav { gap:14px; flex-wrap:wrap; justify-content:flex-end; }
+  .app .home-nav .quiet-button { min-height:44px; }
+  .app .home-nav .quiet-button:first-child { display:inline-flex; }
+  .app .home-copy:has(.mode-picker) h1 { font-size:clamp(40px,7vw,58px); }
+  .app .home-screen:before { background:linear-gradient(90deg,#151710ee,#151710b0 55%,#15171020); }
+  .modal-backdrop,.results-backdrop { padding:16px; }
+  .modal { max-height:calc(100dvh - 32px); }
+  .replay-toolbar { flex-wrap:wrap; height:auto; }
+  .exchange-header { flex-wrap:wrap; }
+}
+
+@media (pointer:coarse) {
+  .decision-hand-tools .hand-tools button,.decision-hand-tools .hand-layout-trigger,
+  .hand-organizer-options > button,.icon-button { min-height:44px; }
+  .icon-button { min-width:44px; }
+  .hand-workspace .card-group-header { touch-action:manipulation; }
+}
+
+/* Cover screen and narrow split-screen remain usable; natural vertical scroll
+   is preferable to shrinking the complete game or clipping its controls. */
+@media (max-width:599px) {
+  .app .table-screen { height:auto; grid-template-rows:minmax(300px,42dvh) auto; }
+  .app .table-screen .play-area .decision-zone { grid-template-columns:1fr; }
+  .decision-zone > .decision-hand-tools { grid-row:2; }
+  .decision-zone > .action-buttons { grid-column:1; grid-row:3; display:flex; }
+  .app .table-screen .play-area .action-buttons > button { flex:1; min-width:0; padding-inline:7px; }
+  .app .decision-hand-tools .hand-toolbar { width:100%; }
+  .app .table-arena .table-chrome-brand,.app .table-arena .table-chrome-controls { max-width:calc(50% - 73px); }
+  .app .table-arena .table-brand .brand-compact,.app .table-arena .table-brand .brand-image { width:80px!important; height:36px!important; }
+  .app .table-arena .header-actions { flex-wrap:wrap; gap:2px 8px; justify-content:flex-end; }
+  .app .table-arena .table-level > span:last-child { display:none; }
+  .app .table-arena .seat-top { min-width:140px; gap:5px; padding:5px; }
+  .app .table-arena .seat-top .seat-count { padding-left:5px; margin-left:0; }
+  .app .table-arena .seat-avatar { width:28px; height:28px; font-size:16px; }
+  .app .table-arena .seat-left,.app .table-arena .seat-right { width:62px; padding:7px 3px; }
+  .app .home-header { flex-wrap:wrap; }
+  .app .home-nav { width:100%; justify-content:space-between; gap:8px; }
+  .app .home-copy { max-width:100%; }
+  .app .home-content { align-items:flex-start; padding-top:22px; }
+}
+
+@media (max-height:639px) and (min-width:600px) {
+  .app > .small-screen-message { display:none; }
+  .app .table-screen { height:auto; min-height:100dvh; grid-template-rows:minmax(250px,1fr) auto; }
+}

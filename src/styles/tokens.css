@@ -1,0 +1,16 @@
+:root {
+  color-scheme: dark;
+  --bg: #171410;
+  --room-background: url('/assets/club-room-square-v1.png');
+  --felt: #163b2e;
+  --felt-dark: #0e281f;
+  --ivory: #fbf3df;
+  --text: #f2e9d9;
+  --muted: #b7ad9b;
+  --gold: #d2b27b;
+  --red: #a12f3e;
+  --black: #1d302b;
+  --line: #ceb68b2b;
+  --font: 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --serif: 'Songti SC', 'STSong', 'SimSun', Georgia, serif;
+}

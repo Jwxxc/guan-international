@@ -1,0 +1,25 @@
+.language-picker { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary, #cbbda5); font-size: 13px; }
+.language-picker select { min-width: 88px; padding: 7px 10px; color: inherit; border: 1px solid #cdb98a45; border-radius: 7px; background: #191c19; cursor: pointer; }
+.language-picker select:focus-visible { outline: 2px solid #d4b16c; outline-offset: 3px; }
+.settings-language { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid #cdb98a25; }
+.international-edition { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
+html[lang="en"] .home-nav { gap: 8px; }
+html[lang="en"] .home-nav .quiet-button { padding-inline: 8px; }
+html[lang="en"] .hand-layout-trigger { min-width: 75px; }
+html[lang="en"] .card-group-header { letter-spacing: 0; font-size: 10px; }
+html[lang="en"] .hand-smart-button { letter-spacing: 0; }
+html[lang="en"] .decision-hand-tools .hand-toolbar { width: 292px; }
+html[lang="en"] .decision-hand-tools .hand-tools { flex-shrink: 0; }
+html[lang="en"] .decision-hand-tools .hand-view-controls { margin-left: 6px; }
+html[lang="en"] .decision-hand-tools .hand-layout-trigger { min-width: 94px; }
+html[lang="en"] .card-corner b { letter-spacing: -.04em; }
+html[lang="en"] .is-joker .card-corner b { font-size: min(13px, var(--hand-rank-size, 13px)); letter-spacing: -.055em; }
+html[lang="en"] .brand-motto-scene { gap: 10px; width: auto; font-size: 11px; letter-spacing: .04em; }
+html[lang="en"] .motto-phrase { width: auto; white-space: nowrap; }
+@media (min-width: 961px) {
+  html[lang="en"] .table-screen .play-area .decision-zone:not(.decision-replay) { grid-template-columns: minmax(0, 1fr) 292px auto; }
+}
+@media (max-width: 1200px) {
+  html[lang="en"] .home-nav { gap: 2px; }
+  html[lang="en"] .home-nav .quiet-button { font-size: 12px; gap: 4px; padding-inline: 5px; }
+}

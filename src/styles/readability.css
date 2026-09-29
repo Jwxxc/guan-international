@@ -1,0 +1,32 @@
+/* Raise decision text locally; the arena and physical card sizes stay stable. */
+.table-screen .play-area .turn-indicator { font-size:14px; }
+.table-screen .play-area .turn-indicator .follow-context { font-size:13px; color:#e1ddcd; }
+.table-screen .play-area .selection-title { font-size:13px; color:#e0dfcf; }
+.table-screen .play-area .selection-status { font-size:13px; line-height:1.45; color:#e1e1d3; }
+.table-screen .play-area .selection-status.invalid { color:#ffc9bb; }
+.table-screen .play-area .interpretation > strong { font-size:13px; }
+.table-screen .play-area .interpretation select { font-size:13px; }
+.table-screen .play-area .wild-mapping { font-size:12px; color:#e7d8b1; }
+.table-screen .table-arena .table-level { font-size:13px; gap:6px; }
+.table-screen .table-arena .table-level .level-caption { color:#ded0ad; }
+.table-screen .table-arena .table-level > span:last-child { color:#e0d0ad; }
+.table-screen .table-match-status { font-size:12px; color:#ead5ac; }
+.hand-organizer-section p, .hand-organizer-footnote { font-size:13px; color:#e2dfce; line-height:1.6; }
+.hand-organizer-options > button { font-size:13px; min-height:40px; }
+.gesture-help-again { margin-top:8px; font-size:13px; color:#f0d49b; }
+.hand-workspace { position:relative; }
+.hand-gesture-help {
+  position:absolute; left:50%; transform:translateX(-50%); bottom:calc(100% + 108px); z-index:15;
+  width:min(440px,calc(100vw - 64px)); padding:12px 15px; border:1px solid #c3a76c;
+  border-radius:10px; background:#233328; color:#f1ecd9; box-shadow:0 8px 24px #0006;
+  display:grid; grid-template-columns:minmax(0,1fr) auto; gap:5px 12px;
+}
+.hand-gesture-help > strong { font-size:14px; color:#f0d297; }
+.hand-gesture-help > p { grid-column:1; margin:0; font-size:14px; line-height:1.6; }
+.hand-gesture-help > span { grid-column:1; font-size:12px; color:#d4d8c7; }
+.hand-gesture-help > button { grid-column:2; grid-row:1/4; align-self:center; min-height:38px; padding:5px 12px; border:1px solid #c3a76c; border-radius:5px; background:#e5c58c; color:#352915; font:600 13px var(--font); cursor:pointer; }
+@media(max-width:1100px) {
+  .table-screen .table-arena .table-level { font-size:12px; }
+  .table-screen .play-area .turn-indicator { font-size:13px; }
+  .table-screen .play-area .selection-status { font-size:13px; }
+}

@@ -1,0 +1,391 @@
+{
+  "seed": 3,
+  "actions": [
+    {
+      "player": 0,
+      "type": "play",
+      "cardIds": [
+        "0-H-5",
+        "0-S-12",
+        "1-C-12",
+        "1-C-5",
+        "1-S-5"
+      ],
+      "playKey": "fullHouse:5:0-H-5,0-S-12,1-C-12,1-C-5,1-S-5:"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "0-C-8",
+        "0-C-9",
+        "0-D-9",
+        "1-H-8",
+        "1-S-8"
+      ],
+      "playKey": "fullHouse:8:0-C-8,0-C-9,0-D-9,1-H-8,1-S-8:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "0-C-13",
+        "1-C-13",
+        "1-D-12",
+        "1-H-12",
+        "1-H-13",
+        "1-S-12"
+      ],
+      "playKey": "plate:13:0-C-13,1-C-13,1-D-12,1-H-12,1-H-13,1-S-12:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "0-C-2",
+        "0-C-5",
+        "0-D-4",
+        "0-S-3",
+        "1-H-14"
+      ],
+      "playKey": "straight:5:0-C-2,0-C-5,0-D-4,0-S-3,1-H-14:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "0-S-5",
+        "1-H-5"
+      ],
+      "playKey": "pair:5:0-S-5,1-H-5:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "0-D-2",
+        "1-C-2"
+      ],
+      "playKey": "pair:15:0-D-2,1-C-2:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "1-H-3"
+      ],
+      "playKey": "single:3:1-H-3:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "0-C-6"
+      ],
+      "playKey": "single:6:0-C-6:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "0-H-10"
+      ],
+      "playKey": "single:10:0-H-10:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "play",
+      "cardIds": [
+        "0-C-7",
+        "0-H-7",
+        "1-C-7",
+        "1-D-7"
+      ],
+      "playKey": "bomb:7:0-C-7,0-H-7,1-C-7,1-D-7:"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-D-6",
+        "0-D-7",
+        "0-H-4",
+        "0-H-8",
+        "1-D-5"
+      ],
+      "playKey": "straight:8:0-D-6,0-D-7,0-H-4,0-H-8,1-D-5:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-C-3",
+        "1-C-9",
+        "1-D-3",
+        "1-H-9",
+        "1-S-3"
+      ],
+      "playKey": "fullHouse:3:0-C-3,1-C-9,1-D-3,1-H-9,1-S-3:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-D-10",
+        "0-D-14",
+        "0-H-14",
+        "0-S-14",
+        "1-H-2"
+      ],
+      "playKey": "fullHouse:14:0-D-10,0-D-14,0-H-14,0-S-14,1-H-2:1-H-2=10H"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "1-C-4"
+      ],
+      "playKey": "single:4:1-C-4:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-H-6"
+      ],
+      "playKey": "single:6:0-H-6:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "1-S-9"
+      ],
+      "playKey": "single:9:1-S-9:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-C-12"
+      ],
+      "playKey": "single:12:0-C-12:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "1-S-13"
+      ],
+      "playKey": "single:13:1-S-13:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "1-D-2"
+      ],
+      "playKey": "single:15:1-D-2:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "1-J-15"
+      ],
+      "playKey": "single:16:1-J-15:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+/* A committed play releases one felt-local impact. No screen flash, input
+   capture or game-clock change: every layer returns to rest and is unmounted. */
+.special-play-effect {
+  position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  --impact-light: 242, 197, 108;
+  --impact-ring-width: 250px; --impact-ring-height: 116px;
+  --impact-center-y: calc(21px + var(--round-card-height, 82px) / 2);
+  --impact-particle-scale: 1;
+}
+.special-play-strong { --impact-ring-width: 304px; --impact-ring-height: 140px; }
+.special-play-royal { --impact-ring-width: 350px; --impact-ring-height: 162px; --impact-light: 255, 218, 136; }
+.special-play-straightFlush { --impact-light: 151, 225, 180; }
+.special-play-burst, .special-play-aura, .special-play-pressure, .special-play-ring, .special-play-echo,
+.special-play-sparks, .special-play-sweep, .special-play-streams, .special-play-crown {
+  position: absolute; left: 50%; top: var(--impact-center-y);
+}
+.special-play-aura {
+  width: calc(var(--impact-ring-width) * 1.22); height: calc(var(--impact-ring-height) * 1.15); border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(var(--impact-light), .025) 20%, rgba(var(--impact-light), .4) 44%, rgba(var(--impact-light), .15) 60%, transparent 74%);
+  animation: impact-aura 1200ms cubic-bezier(.15,.65,.2,1) 50ms both;
+}
+.special-play-burst {
+  width: var(--impact-ring-width); height: var(--impact-ring-height); border-radius: 50%;
+  background: repeating-conic-gradient(from 12deg, transparent 0deg 17deg, rgba(var(--impact-light), .52) 18deg 20deg, transparent 22deg 34deg);
+  -webkit-mask-image: radial-gradient(ellipse, transparent 26%, #000 48%, transparent 73%);
+  mask-image: radial-gradient(ellipse, transparent 26%, #000 48%, transparent 73%);
+  animation: impact-burst 660ms cubic-bezier(.13,.72,.2,1) 90ms both;
+}
+.special-play-pressure {
+  width: calc(var(--impact-ring-width) * .57); height: calc(var(--impact-ring-height) * .63);
+  border: 4px solid rgba(var(--impact-light), .58); border-radius: 50%;
+  box-shadow: 0 0 22px rgba(var(--impact-light), .3), inset 0 0 13px rgba(var(--impact-light), .12);
+  animation: impact-pressure 620ms cubic-bezier(.1,.7,.24,1) 70ms both;
+}
+.special-play-ring, .special-play-echo {
+  width: var(--impact-ring-width); height: var(--impact-ring-height); border-radius: 50%;
+  border: 2px solid rgba(var(--impact-light), .95);
+  box-shadow: 0 0 17px rgba(var(--impact-light), .3), inset 0 0 14px rgba(var(--impact-light), .11);
+  animation: impact-ring 980ms cubic-bezier(.12,.67,.24,1) 110ms both;
+}
+.special-play-ring:before { content: ''; position: absolute; inset: 6px 9px; border: 1px solid rgba(var(--impact-light), .34); border-radius: 50%; }
+.special-play-echo { border-width: 1px; border-color: rgba(var(--impact-light), .63); animation: impact-echo 1000ms cubic-bezier(.16,.62,.25,1) 330ms both; }
+.special-play-ring-outer {
+  width: calc(var(--impact-ring-width) + 30px); height: calc(var(--impact-ring-height) + 16px);
+  border-color: #fff0bd; animation-delay: 240ms; animation-duration: 1180ms;
+}
+.special-play-sparks { transform: scale(var(--impact-particle-scale)); transform-origin: 0 0; }
+.special-play-sparks i {
+  position: absolute; width: var(--spark-size); height: var(--spark-size); border-radius: 1px;
+  background: rgb(var(--impact-light)); box-shadow: 0 0 8px rgba(var(--impact-light), .65);
+  animation: impact-spark 1040ms cubic-bezier(.1,.61,.2,1) calc(120ms + var(--spark-delay)) both;
+}
+.special-play-sparks .special-play-shard { width: calc(var(--spark-size) * 2.5); height: calc(var(--spark-size) * .75); border-radius: 0; background: linear-gradient(90deg, #fff2c9, rgb(var(--impact-light)) 60%, transparent); }
+.special-play-royal .special-play-sparks .special-play-shard { height: 3px; box-shadow: 0 0 11px #f9d787b0; }
+.special-play-sweep {
+  width: calc(var(--impact-ring-width) * 1.1); height: 100px; border-radius: 50%;
+  background: linear-gradient(112deg, transparent 23%, #a6f0c824 37%, #fff0bd60 48%, #97e7b329 59%, transparent 73%);
+  animation: impact-sweep 970ms cubic-bezier(.16,.65,.25,1) 80ms both; mix-blend-mode: screen;
+}
+.special-play-streams { width: calc(var(--impact-ring-width) * 1.12); height: 110px; transform: translate(-50%, -50%); }
+.special-play-streams i {
+  position: absolute; left: 0; top: calc(20px + var(--stream-index) * 29px); width: 100%; height: 18px;
+  border-top: 1px solid #c9f4cfb8; border-bottom: 1px solid #eed9918c; border-radius: 50%;
+  background: linear-gradient(100deg, transparent 6%, #72da9b16 24%, #c8f8d939 48%, #f0d59124 68%, transparent 94%);
+  box-shadow: 0 -3px 10px #a9edbf1a;
+  animation: impact-stream 1140ms cubic-bezier(.13,.64,.2,1) calc(100ms + var(--stream-index) * 100ms) both;
+}
+.special-play-crown { transform: scale(var(--impact-particle-scale)); transform-origin: 0 0; }
+.special-play-crown i {
+  position: absolute; width: 11px; height: 11px; background: linear-gradient(135deg, #fff3c8, #c7923c);
+  clip-path: polygon(50% 0, 66% 34%, 100% 50%, 66% 66%, 50% 100%, 34% 66%, 0 50%, 34% 34%);
+  --crown-x: -112px; --crown-y: -39px;
+  animation: impact-crown 1170ms cubic-bezier(.12,.63,.22,1) calc(160ms + var(--crown-index) * 45ms) both;
+}
+.special-play-crown i:nth-child(2) { --crown-x: 112px; }
+.special-play-crown i:nth-child(3) { --crown-x: 112px; --crown-y: 39px; }
+.special-play-crown i:nth-child(4) { --crown-y: 39px; }
+/* Keep the already-verified plaque geometry outside the owner label. */
+.special-play-plaque {
+  position: absolute; left: 50%; top: -42px; display: flex; align-items: center; gap: 10px;
+  width: max-content; max-width: 100%; padding: 6px 15px; border: 1px solid #edd197c9; border-radius: 5px;
+  color: #fff0bf; background: linear-gradient(140deg, #46371af5, #183c2cf7);
+  box-shadow: 0 4px 16px #07160e77, 0 0 16px #edc66b25, inset 0 1px #ffe5ac3b;
+  white-space: nowrap; text-shadow: 0 1px 3px #061c14;
+  transform: translateX(-50%); animation: impact-plaque var(--impact-duration) ease-out both;
+}
+.special-play-plaque:before { content: ''; position: absolute; inset: 3px; border: 1px solid #f8d88524; border-radius: 2px; pointer-events: none; }
+.round-plays-top .special-play-plaque { top: auto; bottom: -42px; }
+.special-play-plaque strong { font-family: 'Songti SC', 'STSong', serif; font-size: 15px; font-weight: 650; letter-spacing: 3px; }
+.special-play-plaque span { font-size: 8px; opacity: .9; color: #f6d68d; }
+.special-play-straightFlush .special-play-plaque { border-color: #bce5b9ad; background: linear-gradient(140deg, #28563af5, #103c2df7); color: #f0f3d4; }
+.special-play-royal .special-play-plaque { border-color: #fbe5aac9; background: linear-gradient(140deg, #514021f5, #20392bf7); box-shadow: 0 4px 18px #07160e80, 0 0 24px #f4d09038; }
+.round-plays-power-royal { animation: impact-pile-settle 360ms cubic-bezier(.17,.67,.3,1) 180ms both; }
+.round-plays-power-strong { animation: impact-pile-soft-settle 280ms ease-out 180ms both; }
+@keyframes impact-aura { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.4); } 14% { opacity: .92; transform: translate(-50%,-50%) scale(.92); } 45% { opacity: .56; } 100% { opacity: 0; transform: translate(-50%,-50%) scale(1.28); } }
+@keyframes impact-burst { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.24) rotate(-4deg); } 18% { opacity: .88; } 100% { opacity: 0; transform: translate(-50%,-50%) scale(1.24) rotate(5deg); } }
+@keyframes impact-pressure { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.36); } 14% { opacity: .88; } 100% { opacity: 0; transform: translate(-50%,-50%) scale(1.4); } }
+@keyframes impact-ring { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.4); } 17% { opacity: .96; } 100% { opacity: 0; transform: translate(-50%,-50%) scale(1.22); } }
+@keyframes impact-echo { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.62); } 20% { opacity: .65; } 100% { opacity: 0; transform: translate(-50%,-50%) scale(1.32); } }
+@keyframes impact-spark { 0% { opacity: 0; transform: translate(0,0) scale(.6); } 13% { opacity: .97; } 56% { opacity: .82; } 100% { opacity: 0; transform: translate(var(--spark-x),var(--spark-y)) rotate(var(--spark-angle)) scale(.16); } }
+@keyframes impact-sweep { 0% { opacity: 0; transform: translate(-86%,-50%) scaleX(.4); } 24% { opacity: .74; } 100% { opacity: 0; transform: translate(-18%,-50%) scaleX(1.2); } }
+@keyframes impact-stream { 0% { opacity: 0; transform: translateX(-44px) rotate(-14deg) scaleX(.25); } 24% { opacity: .94; } 64% { opacity: .58; } 100% { opacity: 0; transform: translateX(36px) rotate(-14deg) scaleX(1.13); } }
+@keyframes impact-crown { 0% { opacity: 0; transform: translate(0,0) scale(.4) rotate(-45deg); } 20% { opacity: .96; } 100% { opacity: 0; transform: translate(var(--crown-x),var(--crown-y)) scale(.7) rotate(45deg); } }
+@keyframes impact-plaque { 0% { opacity: 0; transform: translate(-50%,5px) scale(.88); } 12% { opacity: 1; transform: translate(-50%,0) scale(1.04); } 23%, 77% { opacity: 1; transform: translate(-50%,0) scale(1); } 100% { opacity: 0; transform: translate(-50%,-3px) scale(.98); } }
+@keyframes impact-pile-settle { 0%,100% { transform: translate(0,0) rotate(0); } 18% { transform: translate(4.5px,-2.5px) rotate(.55deg); } 37% { transform: translate(-3px,1.6px) rotate(-.4deg); } 57% { transform: translate(1.6px,-.9px) rotate(.2deg); } 78% { transform: translate(-.5px,.3px); } }
+@keyframes impact-pile-soft-settle { 0%,100% { transform: translate(0,0); } 23% { transform: translate(2.5px,-1.3px); } 49% { transform: translate(-1.7px,.7px); } 74% { transform: translate(.6px,-.2px); } }
+@media (max-width: 1100px) {
+  .special-play-effect { --impact-ring-width: 210px; --impact-ring-height: 98px; --impact-particle-scale: .84; }
+  .special-play-strong { --impact-ring-width: 244px; --impact-ring-height: 116px; }
+  .special-play-royal { --impact-ring-width: 282px; --impact-ring-height: 132px; }
+  .special-play-plaque { top: -34px; padding: 4px 12px; }
+  .round-plays-top .special-play-plaque { top: auto; bottom: -34px; }
+  .special-play-plaque strong { font-size: 13px; }
+}
+.table-screen:has(.hand-two-rows) .special-play-effect { --impact-ring-height: 104px; --impact-particle-scale: .82; }
+.table-screen:has(.hand-two-rows) .special-play-royal { --impact-ring-height: 122px; }
+@media (prefers-reduced-motion: reduce) {
+  .special-play-motion { display: none; }
+  .special-play-effect *, .round-plays-power-royal, .round-plays-power-strong { animation: none !important; }
+}
+.reduced-motion .special-play-motion { display: none; }
+.reduced-motion .special-play-effect *, .reduced-motion .round-plays-power-royal, .reduced-motion .round-plays-power-strong { animation: none !important; }

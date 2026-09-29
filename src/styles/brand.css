@@ -1,0 +1,94 @@
+/* The original artwork sets the size and remains the accessible fallback.
+   Both metallic layers share its exact contain box, including letter spacing. */
+.brand-lockup .brand-artwork {
+  position: relative;
+  display: grid;
+  width: max-content;
+  margin-top: -1px;
+  isolation: isolate;
+}
+
+.brand-lockup .brand-artwork .brand-image {
+  grid-area: 1 / 1;
+  margin: 0;
+}
+
+/* Homepage signature sits below the wordmark without enlarging the header. */
+.home-header .home-brand { position:relative; flex-shrink:0; }
+.home-brand .home-brand-credit {
+  position:absolute; top:calc(100% - 1px); right:14px;
+  color:#c9b38a; font:italic 11px/1.3 Georgia,'Times New Roman',serif;
+  letter-spacing:.6px; white-space:nowrap;
+}
+
+.brand-gilding {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Keep the plain gold PNG if image masking is unavailable. Never expose a
+   rectangular highlight over the room behind the transparent brush strokes. */
+@supports (mask-image: url('')) or (-webkit-mask-image: url('')) {
+  .brand-gilding {
+    -webkit-mask: url('/assets/brand/guan-calligraphy-lockup-v3.png') center / contain no-repeat;
+    mask: url('/assets/brand/guan-calligraphy-lockup-v3.png') center / contain no-repeat;
+  }
+
+  .brand-gilding::before,
+  .brand-gilding::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Moving bronze, honey and champagne reflections give the ink depth. */
+  .brand-gilding::before {
+    background: linear-gradient(112deg,
+      #95602b 0%, #c99747 12%, #f4d58d 25%, #a9702b 36%,
+      #d9aa59 46%, #ffe5a0 54%, #ac752e 65%, #eac377 80%,
+      #986329 90%, #d3a354 100%);
+    background-size: 240% 180%;
+    background-position: 38% 50%;
+    opacity: 1;
+    animation: brand-gold-flow 6s ease-in-out infinite alternate;
+  }
+
+  /* A broad champagne reflection with a bright core and a short reset.
+     The deeper gold beneath keeps its movement legible at small sizes. */
+  .brand-gilding::after {
+    width: 70%;
+    background: linear-gradient(112deg,
+      transparent 0%, #a06d2733 13%, #ffc959cc 27%,
+      #fff1bf 39%, #fffdf3 45%, #ffffff 52%, #fff2c2 60%,
+      #f5c268b3 76%, transparent 95%);
+    transform: translateX(-110%);
+    opacity: 0;
+    animation: brand-gold-sweep 3.2s linear infinite;
+  }
+}
+
+.brand-compact .brand-gilding::after { animation-duration: 3.8s; }
+
+@keyframes brand-gold-flow {
+  from { background-position: 0% 30%; }
+  to { background-position: 100% 70%; }
+}
+
+@keyframes brand-gold-sweep {
+  0% { transform: translateX(-110%); opacity: 0; }
+  4% { opacity: 1; }
+  88% { transform: translateX(165%); opacity: 1; }
+  94%, 100% { transform: translateX(165%); opacity: 0; }
+}
+
+/* Reduced motion keeps a still metallic finish, with no frozen white streak. */
+.reduced-motion .brand-gilding::before { animation: none; }
+.reduced-motion .brand-gilding::after { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-gilding::before { animation: none; }
+  .brand-gilding::after { display: none; }
+}

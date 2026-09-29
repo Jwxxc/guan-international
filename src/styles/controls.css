@@ -1,0 +1,153 @@
+/* The hand and decisions take their natural space; felt receives the remainder. */
+.table-screen {
+  display:grid;
+  grid-template-rows:minmax(230px,1fr) auto;
+  gap:10px;
+  height:100dvh;
+  min-height:0;
+  padding:10px 32px 12px;
+  overflow:visible;
+}
+.table-screen:has(> .replay-toolbar) { grid-template-rows:auto minmax(220px,1fr) auto; gap:5px; }
+.table-screen .table-arena { min-height:0; height:100%; margin:0 auto; }
+.table-screen .table-felt { border-width:8px; box-shadow:0 1px 0 1px #79573a,0 3px 0 2px #231910,0 8px 0 #120f0b,0 12px 20px #0005,inset 0 0 0 1px #c7a06950,inset 0 0 30px #020e0944; }
+.table-screen .felt-inner { inset:12px; }
+.table-screen .table-watermark { opacity:.10; }
+.table-screen .play-area { min-width:0; margin:0 auto; }
+.play-area .decision-zone { display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;min-height:80px;padding:8px 10px;border:1px solid #bbaa702d;border-radius:8px;background:#1e281fb8;box-shadow:inset 0 1px #e9dec50a; }
+.decision-copy { min-width:0; }
+.play-area .turn-indicator { display:flex; flex-wrap:wrap;gap:6px 9px;min-height:22px;margin:0;padding:0;border:0;font-size:13px;line-height:1.5;color:#e2ddcd; }
+.play-area .turn-indicator strong { font-weight:600; }
+.play-area .turn-indicator .follow-context { color:#c9c5b4;font-size:12px; }
+.play-area .turn-indicator.your-turn strong { color:#f3d69d; }
+.play-area .selection-info { display:grid;grid-template-columns:max-content minmax(0,1fr);align-items:center;gap:2px 11px;max-width:none;min-width:0;margin-top:3px; }
+.play-area .selection-title { min-height:20px;color:#c6c8b9;font-size:11px; }
+.play-area .selection-title strong { color:#f4e8c8;font-size:17px; }
+.play-area .selection-status { grid-column:1/-1;margin:0;color:#c7c8b9;font-size:11px;line-height:1.55; }
+.play-area .selection-status.invalid { color:#f0b6a7; }
+.play-area .interpretation { min-width:0;margin:0; }
+.play-area .interpretation label { min-width:0;gap:7px; }
+.play-area .interpretation label > span { font-size:10px;color:#cfc5ad; }
+.play-area .interpretation select { min-width:0;max-width:100%;width:100%;flex:1;padding-block:4px;font-size:11px; }
+.play-area .interpretation > strong { font-size:12px;color:#efd4a4; }
+.play-area .wild-mapping { color:#dacda9;font-size:10px;line-height:1.45;overflow-wrap:anywhere; }
+.play-area .action-buttons { gap:8px; }
+.play-area .action-buttons > button { min-height:46px;height:46px;padding:9px 14px;font-size:13px; }
+.play-area .action-buttons .play-button { min-width:124px; }
+.play-area .action-buttons .clear-selection-button { min-width:88px;gap:4px;font-size:11px;padding-inline:9px; }
+.play-area .action-buttons button:disabled { opacity:1;background:#2b342d;color:#a5ac9f;border:1px solid #626b5955;box-shadow:none;cursor:not-allowed; }
+.play-area .action-buttons .clear-selection-button:disabled { background:transparent;border-color:#59604c44;color:#8f998b; }
+.play-area .action-buttons .play-button:enabled { background:linear-gradient(115deg,#f0d09b,#d3b075);border:1px solid #f3dbaf;color:#332713;box-shadow:inset 0 1px #fff5db88,0 3px 10px #0003; }
+.play-area .action-buttons kbd { font-size:9px;color:inherit;opacity:.85; }
+.play-area .decision-replay { min-height:28px;padding:4px 10px;background:none;border-color:transparent; }
+
+/* Larger real cards, without scaling the page or changing physical identity. */
+.play-area .hand-workspace { padding-inline:9px; }
+.play-area .hand-context-row { display:flex;align-items:center;gap:12px;min-width:0;min-height:26px;padding:2px 4px; }
+.play-area .hand-context-row .hand-group-strip { flex:1 1 auto;min-width:0;margin:0;padding:0;min-height:22px;scrollbar-width:thin; }
+.play-area .hand-context-row .hand-group-chip { padding:2px 6px;font-size:10px;color:#d4d7c8; }
+.play-area .hand-context-row .hand-notice { position:static;inset:auto;margin:0;min-height:0;font-size:10px;line-height:20px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#c1c7b6; }
+.play-area .hand-context-row:has(.hand-group-strip) .hand-notice { flex:0 1 300px;max-width:32%; }
+.play-area .hand-workspace .hand { min-height:0;padding:13.5px 0 6px;overflow:visible; }
+.play-area .hand-workspace .hand-row { gap:0; }
+.play-area .hand-workspace .hand-card-slot,
+.play-area .hand-workspace .hand-row .playing-card { height:132px; }
+.play-area .hand-workspace .hand-row .card-corner { top:6px;left:5.25px;gap:2.25px; }
+.play-area .hand-workspace .hand-row .card-corner b { font-size:20.25px; }
+.play-area .hand-workspace .hand-row .card-corner span { font-size:15px; }
+.play-area .hand-workspace .hand-row .joker-corner b { font-size:10.5px; }
+.play-area .hand-workspace .hand-row .card-corner-end { top:auto;left:auto;right:5.25px;bottom:5.25px; }
+.play-area .hand-workspace .hand-row .card-corner-end b { font-size:14.25px; }
+.play-area .hand-workspace .hand-row .card-corner-end > span { font-size:12px; }
+.play-area .hand-workspace .hand-row .playing-card.is-selected { transform:translateY(-9px); }
+.play-area .hand-workspace .playing-card .selected-tick { bottom:5.25px;left:5.25px;width:11.25px;height:11.25px;font:8.25px/11.25px var(--font); }
+.play-area[data-selection=invalid] .hand-workspace .playing-card.is-selected { border-color:#d59582;box-shadow:0 0 0 0.75px #bc8070,0.75px 3px #8d6257,0 5.25px 9px #0005; }
+.play-area[data-selection=invalid] .hand-workspace .playing-card.is-selected .selected-tick { background:#8a4b40; }
+.play-area .hand-workspace .hand-two-rows { padding-top:13.5px;gap:0; }
+.play-area .hand-workspace .hand-two-rows .hand-card-slot,
+.play-area .hand-workspace .hand-two-rows .hand-row .playing-card { height:90px; }
+.play-area .hand-workspace .hand-two-rows .hand-row + .hand-row { margin-top:-10.5px; }
+.play-area .hand-workspace .hand-two-rows .hand-row .card-corner b { font-size:18px; }
+.play-area .hand-workspace .hand-two-rows .hand-row .card-corner span { font-size:13.5px; }
+.play-area .hand-workspace .hand-two-rows .hand-row .joker-corner b { font-size:9.75px; }
+.play-area .hand-workspace .hand-two-rows .hand-row:not(:last-child) .hand-group-line { top:auto;bottom:12px; }
+.play-area .hand-workspace .hand-display-vertical { padding:10.5px 2.25px 6px; }
+.play-area .hand-workspace .hand-column-label { height:20px;font-size:10px;line-height:18px;color:#c8cabb; }
+.play-area .hand-workspace .hand-column-cards .playing-card { height:57px;margin-top:-33px; }
+.play-area .hand-workspace .hand-column-cards .playing-card:first-child { margin-top:0; }
+.play-area .hand-workspace .hand-column-cards .playing-card.is-selected { transform:translateX(-2.25px); }
+.play-area .hand-workspace .hand-column-cards .card-corner { gap:1.5px;left:3.75px;top:3.75px; }
+.play-area .hand-workspace .hand-column-cards .card-corner b { font-size:14.25px;line-height:15px; }
+.play-area .hand-workspace .hand-column-cards .card-corner span { font-size:10.5px;line-height:13.5px; }
+.play-area .hand-workspace .hand-column-cards .joker-corner b { font-size:9px;line-height:15px; }
+.play-area .hand-workspace .hand-column-cards .selected-tick { top:17.25px;bottom:auto;left:3.75px;width:6.75px;height:6.75px;font-size:5.25px;line-height:6.75px; }
+
+/* One non-color marker on real heart-level cards, shared by table and exchange views. */
+.playing-card .wild-corner-mark { display:grid;place-items:center;min-width:16px;height:17px;border:1px solid #9b743b;border-radius:3px;background:#ede0bf;color:#624415;font:600 11px/1 var(--font);font-style:normal;margin-top:1px;letter-spacing:0; }
+.hand-column-cards .playing-card .wild-corner-mark { min-width:12px;height:14px;font-size:9px;margin:0; }
+.round-plays .playing-card .wild-corner-mark { min-width:11px;height:12px;font-size:8px;margin:0; }
+button:focus-visible,select:focus-visible { outline:2px solid #e8c78e;outline-offset:3px; }
+
+/* Keep end-of-match actions in view; only the long record table scrolls. */
+.results-panel.match-results { max-height:calc(100dvh - 32px);display:flex;flex-direction:column;align-items:stretch;overflow:visible; }
+.match-results > * { flex-shrink:0; }
+.match-results > .primary-button { align-self:center; }
+.match-results .match-history { flex:1 1 auto;min-height:70px;display:flex;flex-direction:column;margin:8px 0 12px; }
+.match-results .match-history h2 { flex:none;margin:4px 0 8px; }
+.match-results .match-history-scroll { flex:1 1 auto;min-height:35px;max-height:150px;overflow:auto; }
+@media(max-height:800px) {
+  .results-panel.match-results { padding-top:18px;padding-bottom:18px; }
+  .match-results .result-symbol { margin:8px auto;width:32px;height:32px; }
+  .match-results .result-symbol .brand-symbol { width:28px;height:28px; }
+  .match-results .result-subtitle { margin:7px 0 12px; }
+  .match-results .result-order { padding:10px 0;margin-bottom:8px; }
+  .match-results .result-progress { margin-bottom:10px; }
+  .match-results .result-links { margin-top:11px; }
+  .match-results .match-history-scroll { max-height:94px; }
+}
+@media(max-width:1300px) {
+  .play-area .hand-workspace .hand-card-slot,.play-area .hand-workspace .hand-row .playing-card { height:124.5px; }
+  .play-area .hand-workspace .hand-two-rows .hand-card-slot,.play-area .hand-workspace .hand-two-rows .hand-row .playing-card { height:87px; }
+}
+@media(max-width:1100px) {
+  .table-screen { padding:8px 19px 10px;gap:8px; }
+  .play-area .decision-zone { gap:12px;padding:7px 9px; }
+  .play-area .turn-indicator { font-size:12px; }
+  .play-area .turn-indicator .follow-context { font-size:11px; }
+  .play-area .action-buttons > button { min-width:75px;padding-inline:11px;font-size:12px; }
+  .play-area .action-buttons .play-button { min-width:105px; }
+  .play-area .action-buttons .clear-selection-button { min-width:78px;font-size:10px;padding-inline:7px; }
+  .play-area .action-buttons .clear-selection-button svg { display:none; }
+  .play-area .hand-workspace .hand-card-slot,.play-area .hand-workspace .hand-row .playing-card { height:117px; }
+  .play-area .hand-workspace .hand-row .card-corner { left:3px; }
+  .play-area .hand-workspace .hand-row .card-corner b { font-size:17.25px; }
+  .play-area .hand-workspace .hand-row .card-corner span { font-size:13.5px; }
+  .play-area .hand-workspace .hand-row .joker-corner b { font-size:9.75px; }
+  .play-area .hand-workspace .hand-two-rows .hand-card-slot,.play-area .hand-workspace .hand-two-rows .hand-row .playing-card { height:84px; }
+}
+@media(max-width:1023px),(max-height:639px) {
+  .small-screen-message { display:block;text-align:center;padding:8px 16px;background:#665130;color:#f4e0b9;font-size:11px; }
+  .table-screen { min-height:640px;height:calc(100dvh - 36px); }
+}
+
+/* Card rows use the same 75% ratio as their face dimensions. Tool text remains full size. */
+.play-area .hand-workspace .hand-columns { gap:4.5px;padding-inline:3px; }
+.play-area .hand-workspace .playing-card .card-pips { inset:11.25px 12px;font-size:13.5px; }
+.play-area .hand-workspace .playing-card .court-emblem > span { font-size:20.25px; }
+.play-area .hand-workspace .playing-card .wild-corner-mark { min-width:12px;height:13px;font-size:8px;border-radius:2px; }
+
+.hint-dismiss { padding:0 5px; margin-left:4px; font-size:13px; line-height:1; vertical-align:baseline; }
+.ai-policy-setting select { flex-shrink:0;min-width:132px;max-width:48%;padding:9px 8px;border:1px solid var(--line);border-radius:5px;color:var(--cream, #e2d3b5);background:#202c25;font:inherit;font-size:11px;white-space:nowrap; }
+.ai-tier-availability { margin:8px 0 14px;color:#c9bea3;font-size:11px;line-height:1.6; }
+
+/* Give the frequently used home action a clear, full-width button boundary. */
+.pause-actions .pause-home-button {
+  min-height:44px; padding:10px 16px; margin-top:2px;
+  border:1px solid #d4b47c; border-radius:6px;
+  background:linear-gradient(120deg,#c6a46826,#c6a4680d);
+  color:#f0d5a2; font-size:13px; font-weight:600; letter-spacing:.8px;
+  box-shadow:inset 0 1px #f7dfb91a,0 2px 8px #0003;
+}
+.pause-actions .pause-home-button:hover { border-color:#efd39a; background:#c6a46830; color:#ffe3b2; }
+
+.ai-tier-description { margin: 12px 0 16px; color: #c9bfa9; font-size: 12px; line-height: 1.65; text-align: left; }

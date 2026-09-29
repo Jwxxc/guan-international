@@ -1,0 +1,19 @@
+export interface BalancedProDiagnostics {
+  version:'balanced-pro-diagnostics-v1';objective:string;
+  method:'immediate'|'heuristic'|'adaptive-forward'|'public-exact'|'public-finish';
+  baseActionKey:string;selectedActionKey:string;sampledWorlds:number;samplingReason:string|null;
+  controlAdjusted:boolean;publicHistoryReplays:number;
+  forward:{attempted:boolean;changedAction:boolean;reason:string;transitions:number;completed:number;
+    initialRoots:number;refinedRoots:number;selectionSamples:number;confirmationSamples:number;
+    selectionGain:number|null;confirmationGain:number|null;estimateOnly:true};
+  endgame:{status:string;method:string;nodes:number;reason:string;exact:boolean};
+  policyRevision?:string;
+  publicFinish?:{
+    revision:string;status:string;reason:string;adopted:boolean;
+    certificate:import('./publicFinish').PublicFinishCertificate;
+    selectedRoute:import('./publicFinish').PublicFinishChoice|null;
+    baseAction:import('../../engine/types').GameAction;
+    baseScope:'heuristic-proposal';selectedActionSource:'public-result-certificate'|'existing-policy';
+    selectedHeuristicScore:number|null;relayVetoReason:string|null;proofMs:number;
+  };
+}

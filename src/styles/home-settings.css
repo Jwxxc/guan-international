@@ -1,0 +1,72 @@
+/* The saved table stays prominent while the next hand keeps its own controls. */
+.app .home-refined {
+  height: auto;
+  min-height: 100dvh;
+  overflow: visible;
+}
+.app .home-refined .home-copy { width: 570px; max-width: 62%; padding-top: 18px; padding-bottom: 24px; }
+.app .home-refined .start-zone { width: 390px; margin-top: 0; }
+.app .home-refined .mode-picker { margin-bottom: 18px; }
+.app .home-refined .mode-picker button { min-height: 40px; padding: 8px 10px; font-size: 13px; letter-spacing: .5px; }
+.app .home-refined .mode-picker button:not(:disabled) { color: #c9bea7; }
+.app .home-refined .mode-picker button[aria-pressed='true'] { color: #f4dfb7; }
+.app .home-refined .home-resume-button { display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 5px; width: 100%; padding: 13px 18px; text-align: left; }
+.home-resume-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.home-resume-heading strong { font-size: 17px; letter-spacing: 2px; }
+.home-resume-meta { display: flex; flex-direction: column; gap: 3px; }
+.home-resume-mode { font-size: 12px; font-weight: 500; }
+.home-resume-button small { font-size: 12px; line-height: 1.65; font-weight: 400; overflow-wrap: anywhere; }
+.home-resume-button.primary-button small, .home-resume-button.primary-button .home-resume-mode { color: #4f3b21; }
+.home-resume-button.secondary-button small, .home-resume-button.secondary-button .home-resume-mode { color: #d5c7aa; }
+.home-new-heading { display: flex; align-items: center; gap: 12px; margin: 20px 0 14px; color: #c7b898; font-size: 12px; }
+.home-new-heading::after { content: ''; flex: 1; height: 1px; background: #c8ac7533; }
+.app .home-refined .practice-config { gap: 12px; margin-bottom: 2px; padding-bottom: 16px; }
+.app .home-refined .section-caption { color: #eddfc2; font-size: 14px; font-weight: 600; letter-spacing: .5px; }
+.app .home-refined .practice-config p { color: #c7bea9; font-size: 12px; line-height: 1.7; margin-top: 6px; }
+.app .home-refined .level-picker { color: #d5c4a3; font-size: 12px; }
+.home-ai-control .setting-row { gap: 12px; border: 0; padding: 14px 0 0; }
+.home-ai-control .setting-row strong { font-size: 14px; font-weight: 600; color: #eddfc2; }
+.home-ai-control .setting-row small { font-size: 12px; line-height: 1.65; color: #c7bea9; }
+.home-ai-control .ai-policy-setting select { min-width: 130px; min-height: 42px; border-color: #b2986866; font-size: 13px; }
+.home-ai-control .ai-tier-description { margin: 10px 0 18px; font-size: 12px; line-height: 1.75; color: #cfc4ad; }
+.home-ai-control .ai-tier-availability { font-size: 12px; line-height: 1.65; margin: -6px 0 18px; color: #dec49b; }
+.app .home-refined .start-button { min-height: 48px; padding: 12px 18px; font-size: 15px; letter-spacing: 1px; }
+.app .home-refined .home-secondary { margin-top: 10px; font-size: 12px; }
+.app .home-refined .home-secondary > span { color: #c7b99f; font-size: 11px; }
+
+/* Only the settings body scrolls, leaving the way back to the table visible. */
+.modal.settings-refined { display: flex; flex-direction: column; width: 555px; overflow: hidden; }
+.settings-refined > .modal-heading, .settings-refined > .modal-intro, .settings-tabs, .settings-footer { flex-shrink: 0; }
+.settings-refined > .modal-heading { margin-bottom: 4px; }
+.settings-refined > .modal-intro { margin-bottom: 12px; }
+.settings-tabs { display: flex; gap: 5px; padding: 4px; border: 1px solid #b49b633d; border-radius: 7px; background: #15221bb0; }
+.settings-tabs button { flex: 1; padding: 9px 12px; min-height: 38px; border-radius: 4px; border: 1px solid transparent; color: #cbbd9e; background: transparent; font-size: 12px; }
+.settings-tabs button[aria-selected='true'] { color: #f3ddb1; border-color: #c0a26961; background: #b3966333; }
+.settings-panel-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 4px 9px 4px 0; scrollbar-gutter: stable; }
+.settings-refined .settings-ai-control .setting-row { padding: 12px 0 4px; border: 0; }
+.settings-refined .settings-ai-control .ai-tier-description { margin: 7px 0 10px; font-size: 11px; }
+.settings-quick-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; border-top: 1px solid #b49b632b; margin-bottom: 14px; }
+.settings-quick-controls .setting-row { gap: 10px; padding: 13px 0; }
+.settings-quick-controls .setting-row small { line-height: 1.65; }
+.settings-refined .settings-related { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.settings-refined .settings-related .rule-link { text-align: left; gap: 12px; font-size: 11px; }
+.settings-refined .learning-settings { margin: 12px 0 6px; }
+.settings-footer { padding-top: 9px; border-top: 1px solid #b49b633d; }
+.settings-footer .local-note { margin-top: 10px; }
+.settings-footer .pause-actions { margin-top: 0; gap: 7px; }
+.settings-footer .modal-done { margin-top: 0; }
+
+@media (max-height: 800px) {
+  .app .home-refined .home-copy { padding-top: 10px; padding-bottom: 10px; }
+  .app .home-refined .home-resume-button { padding: 10px 16px; gap: 3px; }
+  .home-refined .home-resume-heading strong { font-size: 16px; line-height: 1.4; }
+  .home-refined .home-resume-button small, .home-refined .home-resume-mode { line-height: 1.5; }
+  .home-new-heading { margin: 16px 0 12px; }
+  .modal.settings-refined { padding-top: 20px; padding-bottom: 18px; }
+}
+@media (max-width: 800px) {
+  .app .home-refined .home-copy { width: 430px; max-width: 100%; padding-top: 20px; }
+  .app .home-refined .home-content { padding-top: 0; }
+  .settings-quick-controls { grid-template-columns: 1fr; gap: 0; }
+  .settings-refined .settings-related { grid-template-columns: 1fr; gap: 0; }
+}

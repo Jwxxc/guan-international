@@ -1,0 +1,857 @@
+{
+  "baseline": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "baseline",
+    "implementationVersion": "baseline-v0.3-frozen",
+    "configVersion": "baseline-v0.3-frozen",
+    "candidateVersion": "legacy-physical-representatives-v1",
+    "config": {
+      "finish": 10000,
+      "cardShed": 8,
+      "remainingGroups": 3,
+      "wildUse": 11,
+      "splitPair": 5,
+      "splitTriple": 8,
+      "splitBomb": 29,
+      "splitStraightFlush": 29,
+      "spendBomb": 35,
+      "bombCardCost": 3,
+      "rankCost": 0.25,
+      "followingCardCost": 6,
+      "followControl": 9,
+      "sequenceRestructure": 0.25,
+      "opponentClose": 45,
+      "urgentRank": 1.5,
+      "partnerTakeover": 12,
+      "partnerPass": 18,
+      "normalPass": 0
+    },
+    "workBudget": null,
+    "runtime": {
+      "version": "bounded-runtime-v1",
+      "browserDeadlineMs": 800,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "baseline",
+      "version": "baseline-v0.3-frozen",
+      "configHash": "7c06da7a1d80b49c583c9692611241421e4d9bfd29ec170eb6e43c8f878a98c7"
+    },
+    "descriptorHash": "descriptor-c5b87477"
+  },
+  "coop-v2": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "coop-v2",
+    "implementationVersion": "coop-v2",
+    "configVersion": "coop-config-v1",
+    "candidateVersion": "legacy-physical-representatives-v1",
+    "config": {
+      "version": "coop-config-v1",
+      "exactHandLimit": 10,
+      "branchesPerNode": 4,
+      "nodesPerLargePlan": 10,
+      "planningWeight": 12,
+      "weakSingleWeight": 2,
+      "partnerPass": 26,
+      "relayBonus": 24,
+      "shortOpponentLead": 32,
+      "urgentFollow": 34,
+      "urgentRank": 1.5,
+      "acceptWind": 44,
+      "denyWind": 72,
+      "opponentHeadPressure": 24
+    },
+    "workBudget": {
+      "maxNodes": 256,
+      "maxCandidates": 24,
+      "maxSubsetChecks": 1536
+    },
+    "runtime": {
+      "version": "bounded-runtime-v1",
+      "browserDeadlineMs": 800,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "coop-v2",
+      "version": "coop-v2",
+      "configHash": "coop-75f95ea5"
+    },
+    "descriptorHash": "descriptor-9a428855"
+  },
+  "balanced-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "balanced-v1",
+    "implementationVersion": "balanced-policy-v1.1",
+    "configVersion": "balanced-config-v1",
+    "candidateVersion": "structure-candidates-v1",
+    "config": {
+      "version": "balanced-config-v1",
+      "planningWeight": 12,
+      "weakSingleWeight": 2,
+      "controlResourceWeight": 1.5,
+      "partnerPass": 26,
+      "relayBonus": 24,
+      "shortOpponentLead": 32,
+      "urgentFollow": 34,
+      "urgentRank": 1.5,
+      "acceptWind": 44,
+      "denyWind": 72,
+      "opponentHeadPressure": 24,
+      "provenTypeControlWeight": 3,
+      "plannerVersion": "residual-planner-v1",
+      "knowledgeVersion": "public-ledger-v1"
+    },
+    "workBudget": {
+      "version": "balanced-work-v1",
+      "candidates": {
+        "maxVariantChecks": 384,
+        "maxAdditionalCandidates": 192,
+        "maxChoiceNodes": 8192
+      },
+      "planner": {
+        "maxNodes": 16,
+        "maxSubsetChecks": 1023,
+        "maxCatalogChecks": 96,
+        "branchesPerNode": 4,
+        "alternatives": 3,
+        "exactHandLimit": 8
+      },
+      "maxEvaluatedCandidates": 12
+    },
+    "runtime": {
+      "version": "bounded-runtime-v1",
+      "browserDeadlineMs": 800,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "balanced-v1",
+      "version": "balanced-policy-v1.1",
+      "configHash": "balanced-v1-2c464fa3"
+    },
+    "descriptorHash": "descriptor-bf06b485"
+  },
+  "balanced-attachment-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "balanced-attachment-v1",
+    "implementationVersion": "balanced-attachment-policy-v1",
+    "configVersion": "joker-attachment-cost-v1",
+    "candidateVersion": "structure-candidates-v1",
+    "config": {
+      "baseId": "balanced-v1",
+      "baseVersion": "balanced-policy-v1.1",
+      "baseConfigHash": "balanced-v1-2c464fa3",
+      "baseDescriptorHash": "descriptor-bf06b485",
+      "baseConfig": {
+        "version": "balanced-config-v1",
+        "planningWeight": 12,
+        "weakSingleWeight": 2,
+        "controlResourceWeight": 1.5,
+        "partnerPass": 26,
+        "relayBonus": 24,
+        "shortOpponentLead": 32,
+        "urgentFollow": 34,
+        "urgentRank": 1.5,
+        "acceptWind": 44,
+        "denyWind": 72,
+        "opponentHeadPressure": 24,
+        "provenTypeControlWeight": 3,
+        "plannerVersion": "residual-planner-v1",
+        "knowledgeVersion": "public-ledger-v1"
+      },
+      "attachmentControl": {
+        "version": "joker-attachment-cost-v1",
+        "smallJokerPairCost": 32,
+        "bigJokerPairCost": 40,
+        "fullOpportunityCards": 8,
+        "backupControlDiscount": 0.125,
+        "maxBackupControls": 3,
+        "publicPressureFactor": 0.25,
+        "partnerNearFinishFactor": 0.75
+      },
+      "tacticalVersion": "two-active-public-finish-v1"
+    },
+    "workBudget": {
+      "version": "endgame-work-v1",
+      "base": {
+        "version": "balanced-work-v1",
+        "candidates": {
+          "maxVariantChecks": 384,
+          "maxAdditionalCandidates": 192,
+          "maxChoiceNodes": 8192
+        },
+        "planner": {
+          "maxNodes": 16,
+          "maxSubsetChecks": 1023,
+          "maxCatalogChecks": 96,
+          "branchesPerNode": 4,
+          "alternatives": 3,
+          "exactHandLimit": 8
+        },
+        "maxEvaluatedCandidates": 12
+      },
+      "proof": {
+        "maxOwnCards": 12,
+        "maxOpponentCards": 8,
+        "maxHistoryEvents": 512,
+        "maxReplySubsets": 255,
+        "maxFirstCandidates": 128
+      }
+    },
+    "runtime": {
+      "version": "bounded-runtime-v1",
+      "browserDeadlineMs": 800,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "balanced-attachment-v1",
+      "version": "balanced-attachment-policy-v1",
+      "configHash": "balanced-attachment-v1-fb12eddc"
+    },
+    "descriptorHash": "descriptor-71df3e55"
+  },
+  "coop-endgame-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "coop-endgame-v1",
+    "implementationVersion": "coop-endgame-v1",
+    "configVersion": "two-active-public-finish-v1",
+    "candidateVersion": "legacy-physical-representatives-v1",
+    "config": {
+      "baseId": "coop-v2",
+      "baseVersion": "coop-v2",
+      "baseConfigHash": "coop-75f95ea5",
+      "baseDescriptorHash": "descriptor-9a428855",
+      "baseConfig": {
+        "version": "coop-config-v1",
+        "exactHandLimit": 10,
+        "branchesPerNode": 4,
+        "nodesPerLargePlan": 10,
+        "planningWeight": 12,
+        "weakSingleWeight": 2,
+        "partnerPass": 26,
+        "relayBonus": 24,
+        "shortOpponentLead": 32,
+        "urgentFollow": 34,
+        "urgentRank": 1.5,
+        "acceptWind": 44,
+        "denyWind": 72,
+        "opponentHeadPressure": 24
+      },
+      "tacticalVersion": "two-active-public-finish-v1"
+    },
+    "workBudget": {
+      "version": "endgame-work-v1",
+      "base": {
+        "maxNodes": 256,
+        "maxCandidates": 24,
+        "maxSubsetChecks": 1536
+      },
+      "proof": {
+        "maxOwnCards": 12,
+        "maxOpponentCards": 8,
+        "maxHistoryEvents": 512,
+        "maxReplySubsets": 255,
+        "maxFirstCandidates": 128
+      }
+    },
+    "runtime": {
+      "version": "bounded-runtime-v1",
+      "browserDeadlineMs": 800,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "coop-endgame-v1",
+      "version": "coop-endgame-v1",
+      "configHash": "coop-endgame-v1-c9ca0e22"
+    },
+    "descriptorHash": "descriptor-6af3a915"
+  },
+  "balanced-endgame-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "balanced-endgame-v1",
+    "implementationVersion": "balanced-endgame-v1",
+    "configVersion": "two-active-public-finish-v1",
+    "candidateVersion": "structure-candidates-v1",
+    "config": {
+      "baseId": "balanced-v1",
+      "baseVersion": "balanced-policy-v1.1",
+      "baseConfigHash": "balanced-v1-2c464fa3",
+      "baseDescriptorHash": "descriptor-bf06b485",
+      "baseConfig": {
+        "version": "balanced-config-v1",
+        "planningWeight": 12,
+        "weakSingleWeight": 2,
+        "controlResourceWeight": 1.5,
+        "partnerPass": 26,
+        "relayBonus": 24,
+        "shortOpponentLead": 32,
+        "urgentFollow": 34,
+        "urgentRank": 1.5,
+        "acceptWind": 44,
+        "denyWind": 72,
+        "opponentHeadPressure": 24,
+        "provenTypeControlWeight": 3,
+        "plannerVersion": "residual-planner-v1",
+        "knowledgeVersion": "public-ledger-v1"
+      },
+      "tacticalVersion": "two-active-public-finish-v1"
+    },
+    "workBudget": {
+      "version": "endgame-work-v1",
+      "base": {
+        "version": "balanced-work-v1",
+        "candidates": {
+          "maxVariantChecks": 384,
+          "maxAdditionalCandidates": 192,
+          "maxChoiceNodes": 8192
+        },
+        "planner": {
+          "maxNodes": 16,
+          "maxSubsetChecks": 1023,
+          "maxCatalogChecks": 96,
+          "branchesPerNode": 4,
+          "alternatives": 3,
+          "exactHandLimit": 8
+        },
+        "maxEvaluatedCandidates": 12
+      },
+      "proof": {
+        "maxOwnCards": 12,
+        "maxOpponentCards": 8,
+        "maxHistoryEvents": 512,
+        "maxReplySubsets": 255,
+        "maxFirstCandidates": 128
+      }
+    },
+    "runtime": {
+      "version": "bounded-runtime-v1",
+      "browserDeadlineMs": 800,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "balanced-endgame-v1",
+      "version": "balanced-endgame-v1",
+      "configHash": "balanced-endgame-v1-f650d914"
+    },
+    "descriptorHash": "descriptor-ec037f06"
+  },
+  "pro-neural-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "pro-neural-v1",
+    "implementationVersion": "guan-pro-controller-v1",
+    "configVersion": "guan-pro-config-v1",
+    "candidateVersion": "physical-template-enumeration-v1",
+    "config": {
+      "modelId": "guan-pro-dmc-round-return-seed7312901",
+      "modelHash": "d0e022f8d63bbf3eb23b5a68dd1c5d138e07a460beec01bf47a6bb53b3075985",
+      "checkpointHash": "34e32ec3354a58aea39a8191fc8fdd58e04743538265560d967cd161d33b2115",
+      "encoderVersion": "guan-pro-observation-v1",
+      "objectiveId": "round-return-v1",
+      "endgameVersion": null,
+      "searchVersion": null,
+      "runtimeBackend": "typescript-cpu",
+      "strength": "unverified-training-trial"
+    },
+    "workBudget": {
+      "version": "pro-work-v1",
+      "actions": {
+        "maxWork": 200000,
+        "maxActions": 40000
+      },
+      "proof": {
+        "maxNodes": 2000,
+        "maxActionWork": 250000,
+        "maxActionsPerNode": 40000,
+        "useTwoPlay": true
+      },
+      "search": {
+        "enabled": false,
+        "sampleCount": 4,
+        "confirmationCount": 8,
+        "maxRootActions": 4,
+        "maxPlies": 160,
+        "maxTransitions": 4096,
+        "maxMillis": 1500,
+        "confidenceAlpha": 0.05,
+        "minImprovement": 0.1
+      },
+      "searchMaxRemaining": 24
+    },
+    "runtime": {
+      "version": "pro-runtime-v1",
+      "browserDeadlineMs": 1500,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "pro-neural-v1",
+      "version": "guan-pro-controller-v1",
+      "configHash": "pro-neural-v1-4ca73cac"
+    },
+    "descriptorHash": "descriptor-f7e9d70c"
+  },
+  "pro-endgame-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "pro-endgame-v1",
+    "implementationVersion": "guan-pro-controller-v1",
+    "configVersion": "guan-pro-config-v1",
+    "candidateVersion": "physical-template-enumeration-v1",
+    "config": {
+      "modelId": "guan-pro-dmc-round-return-seed7312901",
+      "modelHash": "d0e022f8d63bbf3eb23b5a68dd1c5d138e07a460beec01bf47a6bb53b3075985",
+      "checkpointHash": "34e32ec3354a58aea39a8191fc8fdd58e04743538265560d967cd161d33b2115",
+      "encoderVersion": "guan-pro-observation-v1",
+      "objectiveId": "round-return-v1",
+      "endgameVersion": "public-two-active-minimax-v2",
+      "searchVersion": null,
+      "runtimeBackend": "typescript-cpu",
+      "strength": "unverified-training-trial"
+    },
+    "workBudget": {
+      "version": "pro-work-v1",
+      "actions": {
+        "maxWork": 200000,
+        "maxActions": 40000
+      },
+      "proof": {
+        "maxNodes": 2000,
+        "maxActionWork": 250000,
+        "maxActionsPerNode": 40000,
+        "useTwoPlay": true
+      },
+      "search": {
+        "enabled": false,
+        "sampleCount": 4,
+        "confirmationCount": 8,
+        "maxRootActions": 4,
+        "maxPlies": 160,
+        "maxTransitions": 4096,
+        "maxMillis": 1500,
+        "confidenceAlpha": 0.05,
+        "minImprovement": 0.1
+      },
+      "searchMaxRemaining": 24
+    },
+    "runtime": {
+      "version": "pro-runtime-v1",
+      "browserDeadlineMs": 1500,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "pro-endgame-v1",
+      "version": "guan-pro-controller-v1",
+      "configHash": "pro-endgame-v1-1b85e70f"
+    },
+    "descriptorHash": "descriptor-828e879e"
+  },
+  "pro-search-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "pro-search-v1",
+    "implementationVersion": "guan-pro-controller-v1",
+    "configVersion": "guan-pro-config-v1",
+    "candidateVersion": "physical-template-enumeration-v1",
+    "config": {
+      "modelId": "guan-pro-dmc-round-return-seed7312901",
+      "modelHash": "d0e022f8d63bbf3eb23b5a68dd1c5d138e07a460beec01bf47a6bb53b3075985",
+      "checkpointHash": "34e32ec3354a58aea39a8191fc8fdd58e04743538265560d967cd161d33b2115",
+      "encoderVersion": "guan-pro-observation-v1",
+      "objectiveId": "round-return-v1",
+      "endgameVersion": "public-two-active-minimax-v2",
+      "searchVersion": "belief-rollout-v1",
+      "runtimeBackend": "typescript-cpu",
+      "strength": "unverified-training-trial"
+    },
+    "workBudget": {
+      "version": "pro-work-v1",
+      "actions": {
+        "maxWork": 200000,
+        "maxActions": 40000
+      },
+      "proof": {
+        "maxNodes": 2000,
+        "maxActionWork": 250000,
+        "maxActionsPerNode": 40000,
+        "useTwoPlay": true
+      },
+      "search": {
+        "enabled": false,
+        "sampleCount": 4,
+        "confirmationCount": 8,
+        "maxRootActions": 4,
+        "maxPlies": 160,
+        "maxTransitions": 4096,
+        "maxMillis": 1500,
+        "confidenceAlpha": 0.05,
+        "minImprovement": 0.1
+      },
+      "searchMaxRemaining": 24
+    },
+    "runtime": {
+      "version": "pro-runtime-v1",
+      "browserDeadlineMs": 3500,
+      "nodeDeadlineMs": 4000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "pro-search-v1",
+      "version": "guan-pro-controller-v1",
+      "configHash": "pro-search-v1-f47d4aa6"
+    },
+    "descriptorHash": "descriptor-6f42a090"
+  },
+  "pro-danlm-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "pro-danlm-v1",
+    "implementationVersion": "danlm-local-observation-v1",
+    "configVersion": "danlm-practice-config-v1",
+    "candidateVersion": "physical-template-enumeration-v1",
+    "config": {
+      "modelId": "DanLM_v1_pinned_16ace5ada4db",
+      "modelHash": "5341d7316bac1ead4098c796ea03f7e38fb47f001cc647a52be3ed0d15cd7244",
+      "checkpointHash": "5341d7316bac1ead4098c796ea03f7e38fb47f001cc647a52be3ed0d15cd7244",
+      "encoderVersion": "guan-danlm-observation-v1",
+      "objectiveId": "round-return",
+      "endgameVersion": null,
+      "searchVersion": null,
+      "runtimeBackend": "pytorch-cpu-arm64",
+      "scope": "practice-only",
+      "licenseUse": "personal-noncommercial-confirmed-by-user",
+      "strength": "development-only"
+    },
+    "workBudget": {
+      "version": "pro-work-v1",
+      "actions": {
+        "maxWork": 200000,
+        "maxActions": 40000
+      },
+      "proof": {
+        "maxNodes": 2000,
+        "maxActionWork": 250000,
+        "maxActionsPerNode": 40000,
+        "useTwoPlay": true
+      },
+      "search": {
+        "enabled": false,
+        "sampleCount": 4,
+        "confirmationCount": 8,
+        "maxRootActions": 4,
+        "maxPlies": 160,
+        "maxTransitions": 4096,
+        "maxMillis": 1500,
+        "confidenceAlpha": 0.05,
+        "minImprovement": 0.1
+      },
+      "searchMaxRemaining": 24
+    },
+    "runtime": {
+      "version": "danlm-local-runtime-v1",
+      "browserDeadlineMs": 2500,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "pro-danlm-v1",
+      "version": "danlm-local-observation-v1",
+      "configHash": "pro-danlm-v1-a3eca2a6"
+    },
+    "descriptorHash": "descriptor-43bc7a8a"
+  },
+  "pro-danlm-classic-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "pro-danlm-classic-v1",
+    "implementationVersion": "danlm-local-classic-v1",
+    "configVersion": "danlm-classic-config-v1",
+    "candidateVersion": "physical-template-enumeration-v1",
+    "config": {
+      "modelId": "DanLM_v1_pinned_16ace5ada4db",
+      "modelHash": "5341d7316bac1ead4098c796ea03f7e38fb47f001cc647a52be3ed0d15cd7244",
+      "checkpointHash": "5341d7316bac1ead4098c796ea03f7e38fb47f001cc647a52be3ed0d15cd7244",
+      "encoderVersion": "guan-danlm-observation-v2",
+      "objectiveId": "round-return",
+      "endgameVersion": null,
+      "searchVersion": null,
+      "runtimeBackend": "pytorch-cpu-arm64",
+      "scope": "practice-and-classic",
+      "licenseUse": "personal-noncommercial-confirmed-by-user",
+      "strength": "development-only",
+      "matchRulesVersion": "guan-classic-house-v1",
+      "exchangePolicy": "frozen-classic-exchange-observation",
+      "objectiveScope": "per-hand-round-return-not-match-win",
+      "publicExchangeEncoding": "original-danlm-tribute-prefix-v1"
+    },
+    "workBudget": {
+      "version": "pro-work-v1",
+      "actions": {
+        "maxWork": 200000,
+        "maxActions": 40000
+      },
+      "proof": {
+        "maxNodes": 2000,
+        "maxActionWork": 250000,
+        "maxActionsPerNode": 40000,
+        "useTwoPlay": true
+      },
+      "search": {
+        "enabled": false,
+        "sampleCount": 4,
+        "confirmationCount": 8,
+        "maxRootActions": 4,
+        "maxPlies": 160,
+        "maxTransitions": 4096,
+        "maxMillis": 1500,
+        "confidenceAlpha": 0.05,
+        "minImprovement": 0.1
+      },
+      "searchMaxRemaining": 24
+    },
+    "runtime": {
+      "version": "danlm-local-runtime-v1",
+      "browserDeadlineMs": 2500,
+      "nodeDeadlineMs": 2000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "bounded-baseline-then-legal-v1",
+    "stamp": {
+      "id": "pro-danlm-classic-v1",
+      "version": "danlm-local-classic-v1",
+      "configHash": "pro-danlm-classic-v1-5d581ac0"
+    },
+    "descriptorHash": "descriptor-dad7768d"
+  },
+  "jwxxc-pro": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "jwxxc-pro",
+    "implementationVersion": "jwxxc-pro-policy-v1",
+    "configVersion": "jwxxc-pro-config-v1",
+    "candidateVersion": "physical-template-enumeration-v1",
+    "config": {
+      "modelId": "guan-jwxxc-dmc-round-return-seed2026092201",
+      "modelHash": "4d7de9eeab0c92fe507f9df9a4d8137ad05cabf5beb15d09184f1b148583ac57",
+      "checkpointHash": "ba5c838f0ccd4ed1a73488ca486eafea28130331a1de991dd2bed9a8ab8d1d37",
+      "encoderVersion": "guan-jwxxc-observation-v1",
+      "objectiveId": "jwxxc-round-return-v1",
+      "objectiveScope": "per-hand-nominal-round-return-warmup-not-match-win",
+      "baseModel": "independently-trained-jwxxc",
+      "runtimeBackend": "typescript-cpu",
+      "endgameVersion": "jwxxc-public-two-active-minimax-v1",
+      "searchVersion": null,
+      "strength": "experimental-unverified",
+      "capabilityChecks": {
+        "encoderParity": true,
+        "rulesCompatibility": true,
+        "informationIsolation": true
+      }
+    },
+    "workBudget": {
+      "version": "jwxxc-work-v1",
+      "actions": {
+        "maxWork": 200000,
+        "maxActions": 40000
+      },
+      "proof": {
+        "maxNodes": 1200,
+        "maxActionWork": 150000,
+        "maxActionsPerNode": 40000,
+        "maxMillis": 450,
+        "useTwoPlay": true
+      },
+      "search": {
+        "enabled": false,
+        "sampleCount": 4,
+        "confirmationCount": 16,
+        "maxRootActions": 4,
+        "maxPlies": 160,
+        "maxTransitions": 6000,
+        "maxMillis": 1000,
+        "confidenceAlpha": 0.05,
+        "minImprovement": 0.1
+      },
+      "searchMaxRemaining": 24
+    },
+    "runtime": {
+      "version": "jwxxc-runtime-v1",
+      "browserDeadlineMs": 3500,
+      "nodeDeadlineMs": 4000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "jwxxc-explicit-runtime-failure-v1",
+    "stamp": {
+      "id": "jwxxc-pro",
+      "version": "jwxxc-pro-policy-v1",
+      "configHash": "jwxxc-pro-e4b94f85"
+    },
+    "descriptorHash": "descriptor-faa2add0"
+  },
+  "jwxxc-model-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "jwxxc-model-v1",
+    "implementationVersion": "jwxxc-pro-policy-v1",
+    "configVersion": "jwxxc-pro-config-v1",
+    "candidateVersion": "physical-template-enumeration-v1",
+    "config": {
+      "modelId": "guan-jwxxc-dmc-round-return-seed2026092201",
+      "modelHash": "4d7de9eeab0c92fe507f9df9a4d8137ad05cabf5beb15d09184f1b148583ac57",
+      "checkpointHash": "ba5c838f0ccd4ed1a73488ca486eafea28130331a1de991dd2bed9a8ab8d1d37",
+      "encoderVersion": "guan-jwxxc-observation-v1",
+      "objectiveId": "jwxxc-round-return-v1",
+      "objectiveScope": "per-hand-nominal-round-return-warmup-not-match-win",
+      "baseModel": "independently-trained-jwxxc",
+      "runtimeBackend": "typescript-cpu",
+      "endgameVersion": null,
+      "searchVersion": null,
+      "strength": "experimental-unverified",
+      "capabilityChecks": {
+        "encoderParity": true,
+        "rulesCompatibility": true,
+        "informationIsolation": true
+      }
+    },
+    "workBudget": {
+      "version": "jwxxc-work-v1",
+      "actions": {
+        "maxWork": 200000,
+        "maxActions": 40000
+      },
+      "proof": {
+        "maxNodes": 1200,
+        "maxActionWork": 150000,
+        "maxActionsPerNode": 40000,
+        "maxMillis": 450,
+        "useTwoPlay": true
+      },
+      "search": {
+        "enabled": false,
+        "sampleCount": 4,
+        "confirmationCount": 16,
+        "maxRootActions": 4,
+        "maxPlies": 160,
+        "maxTransitions": 6000,
+        "maxMillis": 1000,
+        "confidenceAlpha": 0.05,
+        "minImprovement": 0.1
+      },
+      "searchMaxRemaining": 24
+    },
+    "runtime": {
+      "version": "jwxxc-runtime-v1",
+      "browserDeadlineMs": 3500,
+      "nodeDeadlineMs": 4000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "jwxxc-explicit-runtime-failure-v1",
+    "stamp": {
+      "id": "jwxxc-model-v1",
+      "version": "jwxxc-pro-policy-v1",
+      "configHash": "jwxxc-model-v1-ebc021cc"
+    },
+    "descriptorHash": "descriptor-6c21d0f7"
+  },
+  "jwxxc-search-v1": {
+    "schemaVersion": "guan-strategy-descriptor-v1",
+    "id": "jwxxc-search-v1",
+    "implementationVersion": "jwxxc-pro-policy-v1",
+    "configVersion": "jwxxc-pro-config-v1",
+    "candidateVersion": "physical-template-enumeration-v1",
+    "config": {
+      "modelId": "guan-jwxxc-dmc-round-return-seed2026092201",
+      "modelHash": "4d7de9eeab0c92fe507f9df9a4d8137ad05cabf5beb15d09184f1b148583ac57",
+      "checkpointHash": "ba5c838f0ccd4ed1a73488ca486eafea28130331a1de991dd2bed9a8ab8d1d37",
+      "encoderVersion": "guan-jwxxc-observation-v1",
+      "objectiveId": "jwxxc-round-return-v1",
+      "objectiveScope": "per-hand-nominal-round-return-warmup-not-match-win",
+      "baseModel": "independently-trained-jwxxc",
+      "runtimeBackend": "typescript-cpu",
+      "endgameVersion": "jwxxc-public-two-active-minimax-v1",
+      "searchVersion": "jwxxc-belief-rollout-v1",
+      "strength": "experimental-unverified",
+      "capabilityChecks": {
+        "encoderParity": true,
+        "rulesCompatibility": true,
+        "informationIsolation": true
+      }
+    },
+    "workBudget": {
+      "version": "jwxxc-work-v1",
+      "actions": {
+        "maxWork": 200000,
+        "maxActions": 40000
+      },
+      "proof": {
+        "maxNodes": 1200,
+        "maxActionWork": 150000,
+        "maxActionsPerNode": 40000,
+        "maxMillis": 450,
+        "useTwoPlay": true
+      },
+      "search": {
+        "enabled": true,
+        "sampleCount": 4,
+        "confirmationCount": 16,
+        "maxRootActions": 4,
+        "maxPlies": 160,
+        "maxTransitions": 6000,
+        "maxMillis": 1000,
+        "confidenceAlpha": 0.05,
+        "minImprovement": 0.1
+      },
+      "searchMaxRemaining": 24
+    },
+    "runtime": {
+      "version": "jwxxc-runtime-v1",
+      "browserDeadlineMs": 3500,
+      "nodeDeadlineMs": 4000,
+      "nodeFallbackDeadlineMs": 250,
+      "browserFallbackVersion": "legal-fallback-v1",
+      "nodeFallbackVersion": "bounded-baseline-then-legal-v1"
+    },
+    "fallbackVersion": "jwxxc-explicit-runtime-failure-v1",
+    "stamp": {
+      "id": "jwxxc-search-v1",
+      "version": "jwxxc-pro-policy-v1",
+      "configHash": "jwxxc-search-v1-7cb44ace"
+    },
+    "descriptorHash": "descriptor-bc26687f"
+  }
+}

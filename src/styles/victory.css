@@ -1,0 +1,35 @@
+.victory-celebration { pointer-events:none; --victory-gold:241,198,105; }
+.victory-opponents { --victory-gold:176,203,179; }
+.victory-first { position:absolute;left:calc(50% - 246px);top:8px;width:128px;height:58px;z-index:7; }
+.victory-first-medal { position:relative;display:grid;grid-template-columns:20px 1fr;align-items:center;gap:3px 5px;min-height:52px;padding:7px 9px;border:1px solid #e6c485ad;border-radius:7px;background:linear-gradient(125deg,#51452ef8,#213626f7);box-shadow:0 0 20px #e5bc5035,inset 0 1px #f3d69944;animation:victory-medal var(--victory-duration) ease-out both; }
+.victory-first-medal svg { grid-row:span 2;color:#f3d292; }
+.victory-first-medal strong { font:600 15px/1.35 'Songti SC','STSong',serif;color:#ffe4a5;white-space:nowrap; }
+.victory-first-medal span { font-size:9px;color:#e0d3b8;white-space:nowrap; }
+.victory-opponents .victory-first-medal { border-color:#c3d0b975;background:linear-gradient(125deg,#344438f5,#243328f5);box-shadow:0 0 16px #b4ceb21c; }
+.victory-opponents .victory-first-medal strong,.victory-opponents .victory-first-medal svg { color:#d8e2c7; }
+.victory-first .victory-halo { position:absolute;inset:-35px -40px;border-radius:50%;background:radial-gradient(ellipse,rgba(var(--victory-gold),.35),transparent 70%);animation:victory-halo 1250ms ease-out both; }
+.victory-first .victory-orbit { position:absolute;left:50%;top:50%;width:166px;height:93px;border:1px solid rgba(var(--victory-gold),.72);border-radius:50%;animation:victory-orbit 1050ms ease-out both; }
+.victory-confetti { position:absolute;inset:0; }
+.victory-confetti i { position:absolute;top:20%;left:var(--confetti-origin);width:4px;height:8px;background:rgb(var(--victory-gold));border-radius:1px;box-shadow:0 0 6px rgba(var(--victory-gold),.55);animation:victory-confetti calc(var(--victory-duration) - 210ms) cubic-bezier(.1,.6,.25,1) var(--confetti-delay) both; }
+.victory-confetti i:nth-child(3n) { background:#fff0ca;width:3px;height:3px;border-radius:50%; }
+.victory-confetti i:nth-child(4n) { background:#91bd9e; }
+.victory-hand,.victory-match { position:absolute;inset:0;overflow:clip;z-index:0; }
+.results-backdrop:has(.victory-celebration) > .results-panel { position:relative;z-index:1;animation:victory-result-glow var(--victory-duration,2400ms) ease-out both; }
+.victory-hand .victory-halo,.victory-match .victory-halo { position:absolute;inset:6% 9%;background:radial-gradient(ellipse,transparent 24%,rgba(var(--victory-gold),.22) 49%,transparent 71%);animation:victory-halo var(--victory-duration) ease-out both; }
+.victory-match .victory-halo { background:radial-gradient(ellipse,transparent 22%,rgba(var(--victory-gold),.30) 48%,transparent 73%); }
+.victory-hand .victory-orbit,.victory-match .victory-orbit { position:absolute;left:50%;top:45%;width:min(850px,86vw);height:65vh;border:1px solid rgba(var(--victory-gold),.7);border-radius:50%;animation:victory-orbit 1600ms ease-out both; }
+.victory-hand .victory-confetti i,.victory-match .victory-confetti i { top:18%;width:6px;height:12px; }
+.victory-hand .victory-confetti i:nth-child(3n),.victory-match .victory-confetti i:nth-child(3n) { width:4px;height:4px; }
+@keyframes victory-medal { 0%{opacity:0;transform:translateY(8px) scale(.88)} 16%,82%{opacity:1;transform:translateY(0) scale(1)} 100%{opacity:0;transform:translateY(-4px) scale(1)} }
+@keyframes victory-halo { 0%{opacity:0;transform:scale(.6)} 20%{opacity:1} 100%{opacity:0;transform:scale(1.18)} }
+@keyframes victory-orbit { 0%{opacity:0;transform:translate(-50%,-50%) scale(.4)} 15%{opacity:.85} 100%{opacity:0;transform:translate(-50%,-50%) scale(1.2)} }
+@keyframes victory-confetti { 0%{opacity:0;transform:translate(0,0) rotate(0deg) scale(.5)} 16%{opacity:1} 85%{opacity:.85} 100%{opacity:0;transform:translate(var(--confetti-x),var(--confetti-y)) rotate(var(--confetti-spin)) scale(.4)} }
+@keyframes victory-result-glow { 0%,100%{box-shadow:inset 0 1px #f5d99a30,0 25px 100px #0009} 24%{box-shadow:inset 0 1px #fff0bb80,0 0 0 2px #ebcc8860,0 0 65px #e7bc633d,0 25px 100px #0009} }
+.victory-reduced .victory-motion { display:none; }
+.victory-reduced .victory-first-medal { animation:none; }
+.reduced-motion .victory-motion { display:none; }
+.reduced-motion .victory-first-medal,.reduced-motion .results-backdrop:has(.victory-celebration) > .results-panel { animation:none; }
+@media(prefers-reduced-motion:reduce) { .victory-motion{display:none}.victory-first-medal,.results-backdrop:has(.victory-celebration) > .results-panel{animation:none} }
+@media(max-width:1100px) { .victory-first { left:calc(50% - 246px);top:6px;width:128px; }.victory-first-medal { padding:6px 8px;min-height:48px; }.victory-first-medal strong{font-size:14px} }
+
+.results-backdrop:has(.victory-opponents) > .results-panel { animation:none; }

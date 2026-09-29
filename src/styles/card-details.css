@@ -1,0 +1,46 @@
+/* One identity system with fewer details as the physical rendering gets smaller. */
+.playing-card[data-detail=large]:before { border-color:#baa16b55;inset:4px;border-radius:3px; }
+.playing-card[data-detail=medium]:before { border-color:#baa16b30; }
+.playing-card[data-detail=small]:before,.playing-card[data-detail=tiny]:before { border-color:transparent; }
+.playing-card[data-detail=medium] .court-emblem small { display:none; }
+.card-simple-suit { position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);font:30px/1 Georgia,serif;opacity:.67;pointer-events:none; }
+.playing-card[data-detail=tiny] .card-simple-suit { font-size:24px;opacity:.75; }
+/* Public piles expose only index information on covered cards. */
+.round-plays.round-plays-responsive .round-plays-card:not(:last-child) :is(.card-pips,.card-center,.card-simple-suit) { display:none; }
+.round-plays.round-plays-responsive .round-plays-card .playing-card .card-pips { inset:25% 20% 20%;font-size:clamp(10px,calc(var(--round-card-width) * .19),18px);opacity:.85; }
+.round-plays.round-plays-responsive .round-plays-card .playing-card .card-simple-suit { font-size:calc(var(--round-card-width) * .52); }
+.round-plays.round-plays-responsive .round-plays-card .playing-card .card-corner { left:4px;top:5px;gap:1px; }
+/* Keep the two-digit 10 inside the narrowest exposed strip at each detail tier. */
+.round-plays.round-plays-responsive .round-plays-slot[data-spread=tight] .round-plays-card:not(:last-child) .card-corner:not(.card-corner-end) { left:3px; }
+.round-plays.round-plays-responsive .playing-card[data-detail=large] .card-corner b { font-size:24px;line-height:25px; }
+.round-plays.round-plays-responsive .playing-card[data-detail=medium] .card-corner b { font-size:20px;line-height:21px; }
+.round-plays.round-plays-responsive .playing-card[data-detail=small] .card-corner b { font-size:18px;line-height:19px; }
+.round-plays.round-plays-responsive .playing-card[data-detail=tiny] .card-corner b { font-size:16px;line-height:17px; }
+.round-plays.round-plays-responsive .playing-card .card-corner > span { font-size:15px;line-height:16px; }
+.round-plays.round-plays-responsive .playing-card[data-detail=tiny] .card-corner { left:3px; }
+.round-plays.round-plays-responsive .playing-card[data-detail=tiny] .card-corner > span { font-size:12px;line-height:13px; }
+.round-plays.round-plays-responsive .playing-card .card-corner-end { top:auto;left:auto;right:4px;bottom:5px; }
+.round-plays.round-plays-responsive .playing-card .card-corner-end b { font-size:13px;line-height:14px; }
+.round-plays.round-plays-responsive .playing-card .card-corner-end > span { font-size:11px;line-height:12px; }
+/* History already uses muted, opaque paper in table-material.css. Fading each
+   overlapping face makes covered paper/shadows bleed through as vertical bands. */
+/* The vertical hand uses the same simple face without losing the exposed index. */
+.hand-column-cards .playing-card:not(:last-child) .card-simple-suit { display:none; }
+.hand-workspace .hand-card-slot:not(:last-child) .card-simple-suit { opacity:.22; }
+.round-plays.round-plays-responsive .round-plays-card .playing-card .card-pips.card-pips-dense { font-size:calc(var(--round-card-width) * .13); }
+/* Broad spreads can retain quiet decoration; narrow strips remain index-only. */
+.round-plays.round-plays-responsive .round-plays-slot[data-spread=open] .round-plays-card:not(:last-child) .card-pips { display:block;opacity:.3; }
+.round-plays.round-plays-responsive .playing-card[data-detail] .card-corner-end b { font-size:13px;line-height:14px; }
+.round-plays.round-plays-responsive .playing-card[data-detail] .card-corner-end > span { font-size:11px;line-height:12px; }
+.play-area .hand-workspace .playing-card[data-detail] .card-pips-dense { font-size:calc(var(--hand-card-width) * .15); }
+.play-area .hand-workspace.vertical-workspace .hand-column-cards .playing-card .joker-corner b { font-size:clamp(10px,calc(var(--hand-card-width) * .185),16px);line-height:1.15; }
+/* Small faces remove the repeated lower index rather than crowding the center. */
+.playing-card[data-detail=small] .card-corner-end,.playing-card[data-detail=tiny] .card-corner-end { display:none; }
+.playing-card[data-detail=small] .card-simple-suit,.playing-card[data-detail=tiny] .card-simple-suit { left:60%;top:63%; }
+.round-history-detail-cards .playing-card { width:76px;height:114px; }
+.round-history-detail-cards .playing-card .card-pips { inset:25% 20% 24%;font-size:14px; }
+.round-history-detail-cards .playing-card .card-pips-dense { font-size:10px; }
+.exchange-evidence .playing-card[data-detail=tiny] .joker-corner { flex-direction:row; }
+.exchange-evidence .playing-card[data-detail=tiny] .joker-corner b { font:10px/12px var(--font);writing-mode:horizontal-tb;letter-spacing:0; }
+.exchange-evidence .playing-card[data-detail=tiny] .joker-corner > span { display:none; }
+.round-plays.round-plays-responsive .round-plays-owner strong { max-width:calc(100% - 72px);overflow:hidden;text-overflow:ellipsis; }

@@ -1,0 +1,188 @@
+{
+  "seed": 5,
+  "actions": [
+    {
+      "player": 0,
+      "type": "play",
+      "cardIds": [
+        "0-C-5",
+        "0-H-6",
+        "1-H-5",
+        "1-H-6",
+        "1-S-5",
+        "1-S-6"
+      ],
+      "playKey": "plate:6:0-C-5,0-H-6,1-H-5,1-H-6,1-S-5,1-S-6:"
+    },
+    {
+      "player": 1,
+      "type": "pass"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "play",
+      "cardIds": [
+        "0-H-13",
+        "0-S-11",
+        "1-D-11",
+        "1-D-12",
+        "1-H-12",
+        "1-S-13"
+      ],
+      "playKey": "pairs:13:0-H-13,0-S-11,1-D-11,1-D-12,1-H-12,1-S-13:"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-C-14",
+        "0-D-12",
+        "0-D-13",
+        "0-H-12",
+        "0-S-13",
+        "1-H-14"
+      ],
+      "playKey": "pairs:14:0-C-14,0-D-12,0-D-13,0-H-12,0-S-13,1-H-14:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-D-5",
+        "1-D-4",
+        "1-H-3",
+        "1-S-14",
+        "1-S-2"
+      ],
+      "playKey": "straight:5:0-D-5,1-D-4,1-H-3,1-S-14,1-S-2:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-D-6",
+        "0-H-9",
+        "0-S-6",
+        "0-S-9",
+        "1-D-6"
+      ],
+      "playKey": "fullHouse:6:0-D-6,0-H-9,0-S-6,0-S-9,1-D-6:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "play",
+      "cardIds": [
+        "0-D-10",
+        "0-H-10",
+        "0-S-14",
+        "1-C-10",
+        "1-C-14"
+      ],
+      "playKey": "fullHouse:10:0-D-10,0-H-10,0-S-14,1-C-10,1-C-14:"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "0-H-2",
+        "0-H-7",
+        "1-C-7",
+        "1-H-11",
+        "1-H-2"
+      ],
+      "playKey": "fullHouse:11:0-H-2,0-H-7,1-C-7,1-H-11,1-H-2:0-H-2=11H,1-H-2=11H"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "pass"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "1-H-4"
+      ],
+      "playKey": "single:4:1-H-4:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "pass"
+    },
+    {
+      "player": 0,
+      "type": "play",
+      "cardIds": [
+        "1-D-8"
+      ],
+      "playKey": "single:8:1-D-8:"
+    },
+    {
+      "player": 1,
+      "type": "play",
+      "cardIds": [
+        "1-H-10"
+      ],
+      "playKey": "single:10:1-H-10:"
+    },
+    {
+      "player": 2,
+      "type": "pass"
+    },
+    {
+      "player": 3,
+      "type": "pass"
+    }
+  ]
+}

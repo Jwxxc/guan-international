@@ -1,0 +1,52 @@
+/* Approved bear artwork. Labels and pointer targets remain the real card's DOM. */
+.playing-card.is-joker[data-joker-exposure] .joker-art {
+  position:absolute;top:23px;right:4px;bottom:4px;left:4px;
+  display:block;overflow:hidden;pointer-events:none;z-index:1;
+}
+.playing-card.is-joker[data-joker-exposure] .joker-portrait {
+  display:block;width:100%;height:100%;max-width:none;
+  object-fit:contain;object-position:center;pointer-events:none;
+  user-select:none;-webkit-user-select:none;-webkit-user-drag:none;
+}
+.playing-card.is-joker[data-joker-exposure] .card-corner { z-index:2; }
+.playing-card.is-joker[data-joker-exposure] .joker-corner { flex-direction:row;gap:0; }
+.playing-card.is-joker[data-joker-exposure] .joker-corner b {
+  writing-mode:horizontal-tb;font:600 12px/1.15 var(--serif);letter-spacing:0;
+}
+.playing-card.is-joker[data-joker-exposure] .joker-corner > span,
+.playing-card.is-joker[data-joker-exposure] .card-corner-end { display:none; }
+.playing-card.is-joker[data-joker-exposure] .selected-tick { z-index:3; }
+.playing-card.is-joker.joker-small { color:#15234a; }
+
+/* Only the left strip is visible: a scepter or upright tilted beret. */
+.playing-card.is-joker[data-joker-exposure=left] .joker-corner {
+  left:4px;top:5px;
+}
+.playing-card.is-joker[data-joker-exposure=left] .joker-corner b {
+  writing-mode:vertical-rl;letter-spacing:1px;
+}
+.playing-card.is-joker[data-joker-exposure=left] .joker-art {
+  --joker-symbol-width:min(22px,calc(var(--joker-strip) - 6px));
+  left:calc((var(--joker-strip) - var(--joker-symbol-width)) / 2);
+  right:auto;top:35px;bottom:6px;width:var(--joker-symbol-width);
+}
+/* The hat uses more of the strip than the slim scepter, without touching the next card. */
+.playing-card.is-joker.joker-small[data-joker-exposure=left] .joker-art {
+  --joker-symbol-width:min(36px,calc(var(--joker-strip) - 2px));
+}
+
+/* Top strips keep the whole standalone crown/hat beside the readable name. */
+.playing-card.is-joker[data-joker-exposure=top] .joker-art {
+  top:3px;right:5px;left:auto;bottom:auto;
+  width:clamp(18px,calc(100% - 39px),30px);
+  height:min(18px,calc(var(--joker-strip) - 6px));
+}
+.playing-card.is-joker[data-detail=tiny][data-joker-exposure=full] .joker-art {
+  top:25px;left:6px;right:6px;bottom:9px;
+}
+
+/* Public rank numerals have larger type rules; keep the two-character joker index compact. */
+.round-plays.round-plays-responsive .playing-card.is-joker[data-joker-exposure] .joker-corner b {
+  font-size:clamp(11px,calc(var(--round-card-width) * .17),14px);line-height:1.1;
+}
+.round-plays.round-plays-responsive .playing-card.is-joker[data-joker-exposure=left] .joker-art { top:38px; }

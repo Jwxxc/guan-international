@@ -1,0 +1,66 @@
+.room-atmosphere {
+  --pendant-breath-duration: 7.2s;
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Only opacity changes: the room stays still and the light follows its source.
+   Different periods keep the warm practical lights from pulsing in unison. */
+.room-light {
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: .28;
+  animation: room-light-breathe 7.6s ease-in-out infinite;
+}
+
+/* The shade, nearby spill and felt share one slow inhale/exhale. The clipped
+   shade layers change the lamp itself without moving or washing out its frame. */
+.room-light-pendant,
+.room-light-pendant-core,
+.room-light-pendant-dim,
+.room-light-reflection { animation-duration: var(--pendant-breath-duration); }
+.room-light-pendant { animation-name: room-pendant-halo; }
+.room-light-pendant-core { animation-name: room-pendant-core; }
+.room-light-pendant-dim { mix-blend-mode: normal; animation-name: room-pendant-dim; }
+
+.room-light-sconce { animation-duration: 9.4s; animation-delay: -3s; }
+.room-light-shelf { animation-duration: 11.8s; animation-delay: -7s; }
+.room-light-niche { animation-duration: 13.2s; animation-delay: -5s; }
+.room-light-reflection { opacity: .18; animation-name: room-light-reflection; }
+
+@keyframes room-pendant-halo {
+  0%, 100% { opacity: .1; }
+  50% { opacity: .62; }
+}
+
+@keyframes room-pendant-core {
+  0%, 100% { opacity: .04; }
+  50% { opacity: .5; }
+}
+
+@keyframes room-pendant-dim {
+  0%, 100% { opacity: .3; }
+  50% { opacity: 0; }
+}
+
+@keyframes room-light-breathe {
+  0%, 100% { opacity: .16; }
+  46% { opacity: .55; }
+  72% { opacity: .32; }
+}
+
+@keyframes room-light-reflection {
+  0%, 100% { opacity: .08; }
+  50% { opacity: .3; }
+}
+
+.room-scene[data-paused='true'] .room-light { animation-play-state: paused; }
+.reduced-motion .room-light { display: none; animation: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .room-light { display: none; animation: none; }
+}
